@@ -46,7 +46,7 @@
             <div class="carousel w-full">
                 <div id="item1" class="carousel-item w-full">
                     <img
-                    src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                    src="https://imgs.search.brave.com/5duH3V6QYas9AMP_vhUyvd_NKsVODVZpJeQDxhMPJ_E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kaWFy/aW9jb3JyZW8ucGUv/cmVzaXplci92Mi81/MldOWEhWNFdGR0hQ/SFBVREZLS0xSQUhK/TS5qcGc_YXV0aD0x/ZmM5ZWUyZmRhZWVi/ZjA5NmY1ODA3Y2Ex/NzU1N2IxYWVjMzA3/Njg2OTgzNTNiMDBl/YjI4OGFjMTAyYzFh/ODU5JndpZHRoPTEy/MDAmaGVpZ2h0PTY3/NiZxdWFsaXR5PTc1/JnNtYXJ0PXRydWU"
                     class="w-full" />
                 </div>
                 <div id="item2" class="carousel-item w-full">

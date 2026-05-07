@@ -32,36 +32,34 @@
     </header>
     <!-- CONTENEDOR DE TARJETAS (GRID) -->
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
+    
+<main class="p-10">
+    <h2 class="text-3xl mb-6">Listado de Reportes</h2>
+    <form action="{{route('reportes')}}" method="GET" class="flex gap-4 mb-10">
+        <input type="text" name="username" placeholder="Buscar por usuario" class="input input-bordered w-full max-w-xs"/>
+        <input type="date" name="date" class="input input-bordered">
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-
         @foreach($reports as $report)
         <div class="card bg-base-100 shadow-xl">
-            <!-- DIRECTIVA @foreach -->
-            <!-- Itera sobre la colección de objetos $reports que enviamos desde el ReportController -->
-
-            <!-- Sección de la imagen del reporte -->
             <figure>
-                <!-- El helper asset() genera la URL absoluta hacia la carpeta public/storage -->
                 <img src="{{ asset('storage/' . $report->image_path) }}" alt="Reporte" />
             </figure>
 
             <div class="card-body">
-                <!-- Título de la tarjeta: Nombre del usuario -->
                 <h2 class="card-title">{{ $report->username }}</h2>
 
-                <!-- Contenido del reporte: Comentario del usuario -->
                 <p>{{ $report->comment }}</p>
 
                 <div class="card-actions justify-end">
-                    <!-- Badge: Muestra la fecha del reporte con un estilo visual destacado -->
                     <div class="badge badge-outline">{{ $report->report_date }}</div>
                 </div>
             </div>
         </div>
         @endforeach <!-- Fin del ciclo -->
     </div>
-    </main>
+</main>
 
 
 </body>

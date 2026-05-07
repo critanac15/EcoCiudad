@@ -32,7 +32,7 @@
                         </fieldset>
                     </div>
                     <div class="xl:flex justify-center items-end">
-                        <button type="submit" class="xl:bg-amber-100 xl:px-4 xl:py-2 rounded-xl hover:bg-amber-300 hover:cursor-pointer hover:duration-150">
+                        <button type="submit" class="bg-[#2f3f43] xl:px-4 xl:py-2 rounded-xl hover:bg-[#6b878d] hover:cursor-pointer hover:duration-150 text-white">
                             Registrar
                         </button>
                     </div>
@@ -50,14 +50,14 @@
                         </fieldset>
                     </div>
                     <div class="xl:flex justify-center ">
-                        <button type="submit" class="xl:bg-amber-100 xl:px-4 xl:py-2 rounded-xl hover:bg-amber-300 hover:cursor-pointer hover:duration-150">
+                        <button type="submit" class="bg-[#2f3f43] xl:px-4 xl:py-2 rounded-xl hover:bg-[#6b878d] hover:cursor-pointer hover:duration-150 text-white">
                             Ingresar
                         </button>
                     </div>
                 </form>
             </div>
             <div class="xl:flex xl:justify-center">
-                <a href="{{route('inicio')}}" class="xl:bg-amber-100 xl:px-6 xl:py-2 rounded-xl hover:bg-amber-300 hover:cursor-pointer hover:duration-300 hover:scale-110">Ir a la pagina de Inicio</a>
+                <a href="{{route('inicio')}}" class="bg-[#2f3f43] xl:px-4 xl:py-2 rounded-xl hover:bg-[#6b878d] hover:cursor-pointer hover:duration-150 text-white">Ir a la pagina de Inicio</a>
             </div>
         </div>
         

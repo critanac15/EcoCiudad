@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +15,8 @@ Route::get('inicio',function(){
 Route::get('/reportes',function(){
     return view('reportes');
 })->name('reportes');
+
+Route::get('/reportes', [ReportController::class, 'index'])->name('reportes');
 
 Route::get('soporteAyuda',function(){
     return view('soporteAyuda');

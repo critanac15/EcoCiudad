@@ -10,6 +10,7 @@ class ReportSeeder extends Seeder
     public function run(): void
     {
         // Creamos registros manuales para probar que la vista y los filtros funcionen
+        // ./vendor/bin/sail artisan db:seed --class=ReportSeeder
         Report::create([
             'username' => 'Delegado',
             'comment' => 'Primer reporte de prueba',
