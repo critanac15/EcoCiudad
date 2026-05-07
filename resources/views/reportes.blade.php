@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
     <header class="xl:flex xl:justify-around bg-[#52616B] text-white xl:py-5">
         <div class="flex justify-center items-center">
@@ -28,8 +30,40 @@
             </svg>
         </a>
     </header>
+    <!-- CONTENEDOR DE TARJETAS (GRID) -->
+    <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
 
-    
+        @foreach($reports as $report)
+        <div class="card bg-base-100 shadow-xl">
+            <!-- DIRECTIVA @foreach -->
+            <!-- Itera sobre la colección de objetos $reports que enviamos desde el ReportController -->
+
+            <!-- Sección de la imagen del reporte -->
+            <figure>
+                <!-- El helper asset() genera la URL absoluta hacia la carpeta public/storage -->
+                <img src="{{ asset('storage/' . $report->image_path) }}" alt="Reporte" />
+            </figure>
+
+            <div class="card-body">
+                <!-- Título de la tarjeta: Nombre del usuario -->
+                <h2 class="card-title">{{ $report->username }}</h2>
+
+                <!-- Contenido del reporte: Comentario del usuario -->
+                <p>{{ $report->comment }}</p>
+
+                <div class="card-actions justify-end">
+                    <!-- Badge: Muestra la fecha del reporte con un estilo visual destacado -->
+                    <div class="badge badge-outline">{{ $report->report_date }}</div>
+                </div>
+            </div>
+        </div>
+        @endforeach <!-- Fin del ciclo -->
+    </div>
+    </main>
+
+
 </body>
+
 </html>
