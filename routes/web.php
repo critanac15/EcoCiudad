@@ -12,7 +12,7 @@ Route::get('inicio',function(){
     return view('inicio');
 })->name('inicio');
 
-Route::get('/reportes',function(){
+Route::get('reportes',function(){
     return view('reportes');
 })->name('reportes');
 
@@ -23,3 +23,6 @@ Route::get('soporteAyuda',function(){
 Route::get('login',function(){
     return view('login');
 })->name('login');
+Route::get('registro',function(){
+    return view('registro');
+})->name('registro');
