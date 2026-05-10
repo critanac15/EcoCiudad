@@ -15,20 +15,24 @@
 </head>
 
 <body>
-    <header class="xl:flex xl:justify-around bg-[#52616B] text-white xl:py-5">
-        <div class="flex justify-center items-center">
-            <h1 class="xl:text-2xl">EcoSauld</h1>
-        </div>
-        <div class="xl:flex xl:gap-4">
-            <a class="bg-[#2f3f43]  xl:px-3 xl:py-2 xl:rounded-xl hover:bg-[#6b878d] hover:cursor-pointer" href="{{route('inicio')}}">Inicio</a>
-            <a class="bg-[#2f3f43] xl:px-3 xl:py-2 rounded-xl hover:bg-[#6b878d] hover:cursor-pointer" href="{{route('reportes')}}">Reportes</a>
-            <a class="bg-[#2f3f43] xl:px-3 xl:py-2 xl:rounded-xl hover:bg-[#6b878d] hover:cursor-pointer" href="{{route('soporteAyuda')}}">Soporte y ayuda</a>
-        </div>
-        <a type="button" class="flex justify-center items-center hover:cursor-pointer" href="{{route('login')}}">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="xl:size-8 xl:hover:scale-x-110">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    <header class="xl:grid xl:grid-cols-7 bg-[#021802] text-white xl:py-5">
+        <div class="xl:flex xl:justify-center xl:items-center ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
             </svg>
-        </a>
+
+            <h1 class="xl:text-2xl">EcoCiudad</h1>
+        </div>
+        <nav class="xl:flex xl:gap-4 xl:col-span-5 justify-center xl:text-lg">
+            <a class="  xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{ route('inicio') }} ">Inicio</a>
+            <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('reportes')}}">Reportes</a>
+            <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('soporteAyuda')}}">Soporte / ayuda</a>
+        </nav>
+        <nav class="xl:flex xl:gap-2 items-center ">
+            <a href="{{route('login')}}" class="bg-[#01c04d] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#4bdf3e] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
+            <a href="" class="bg-[#cacaca] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#e1e1e1] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+        </nav>
+        
     </header>
     <!-- CONTENEDOR DE TARJETAS (GRID) -->
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
