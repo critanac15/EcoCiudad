@@ -29,8 +29,8 @@
             <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('soporteAyuda')}}">Soporte / ayuda</a>
         </nav>
         <nav class="xl:flex xl:gap-2 items-center ">
-            <a href="{{route('login')}}" class="bg-[#01c04d] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#4bdf3e] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
-            <a href="" class="bg-[#cacaca] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#e1e1e1] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+            <a href="{{route('registro')}}" class="bg-[#01c04d] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#4bdf3e] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
+            <a href="{{route('login')}}" class="bg-[#cacaca] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#e1e1e1] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
         </nav>
         
     </header>
