@@ -28,7 +28,7 @@
                     </fieldset>
                     <fieldset class="xl:flex xl:justify-between xl:gap-3 items-center">
                         <label for="password_registro">Contraseña: </label>
-                        <input type="password" class="xl:px-3 xl:py-1 outline-0  xl:rounded-xl xl:border-gray-300 xl:w-72 xl:h-10">
+                        <input type="password" class="xl:px-3 xl:py-1 outline-0  xl:rounded-xl xl:border-gray-300 xl:w-72 xl:h-10" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required minlength="8" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter">
                     </fieldset>
                     <fieldset class="xl:flex xl:justify-between items-center xl:gap-3">
                         <label for="password_registro">Contraseña: </label>
