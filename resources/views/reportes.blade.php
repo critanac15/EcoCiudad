@@ -12,6 +12,18 @@
     <link rel="icon" type="image/svg+xml" href="{{asset('logo.svg')}}">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @keyframes aparecer {
+            from{opacity: 0;}
+            to{opacity: 1;}
+        }
+        #mostrar_div_reporte{
+            animation: aparecer 1s;
+        }
+        #crear_div_reporte{
+            animation: aparecer 1s;
+        }
+    </style>
 </head>
 
 <body class="flex flex-col h-full">
@@ -38,32 +50,172 @@
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
     
 <main class="xl:px-20 xl:py-20   bg-[#e1f2e6] flex flex-col min-h-screen">
-    <h2 class="text-3xl xl:mb-6">Listado de Reportes</h2>
-    <form action="{{route('reportes')}}" method="GET" class="flex xl:gap-4 xl:mb-10">
-        <input type="text" name="username" placeholder="Buscar por usuario" class="bg-white border-gray-300 xl:rounded-lg xl:pl-2 focus:border-gray-400 w-full max-w-xs hover:outline-0"/>
-        <input type="date" name="date" class="bg-white border-gray-300 xl:rounded-lg xl:px-2 focus:border-gray-400 w-full max-w-xs hover:outline-0 hover:cursor-text ">
-        <button type="submit" class="btn btn-primary xl:hover:scale-105">Filtrar</button>
-    </form>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        @foreach($reports as $report)
-        <div class="card bg-base-100 shadow-xl">
-            <figure>
+    <div class="xl:flex xl:gap-5 xl:mb-10">
+        <div>
+            <button id="ver_reporte"  class="btn btn-accent xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>            
+        </div>
+        <div>
+            <button id="crear_reporte" class="btn btn-accent xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte</button>
+        </div>
+    </div>
+    
+
+
+<!---Creando la estructura para ver reportes-->
+    <div class="block" id="mostrar_div_reporte">
+        <h2 class="text-3xl xl:mb-6">Listado de Reportes</h2>
+        <div class="xl:flex xl:gap-5">
+            <form action="{{route('reportes')}}" method="GET" class="flex xl:gap-4 xl:mb-10">
+                <input type="text" name="username" placeholder="Buscar por usuario" class="bg-white border-gray-300 xl:rounded-lg xl:pl-2 focus:border-gray-400 w-full max-w-xs hover:outline-0"/>
+                <input type="date" name="date" class="bg-white border-gray-300 xl:rounded-lg xl:px-2 focus:border-gray-400 w-full max-w-xs hover:outline-0 hover:cursor-text ">
+                <button type="submit" class="btn btn-primary xl:hover:scale-105 transition-all duration-150">Filtrar</button>
+            </form>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @foreach($reports as $report)
+            <div class="card bg-base-100 shadow-xl">
+                <figure>
                 <img src="{{ asset('storage/' . $report->image_path) }}" alt="Reporte" />
-            </figure>
+                </figure>
+                
+                <div class="card-body">
+                    <h2 class="card-title">{{ $report->username }}</h2>
+                    
+                    <p>{{ $report->comment }}</p>
+                    
+                    <div class="card-actions justify-end">
+                        <div class="text-blue-700">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+<!------------------------------------------>
 
-            <div class="card-body">
-                <h2 class="card-title">{{ $report->username }}</h2>
+<!---Creando la estructura para poder crear reportes-->
+    <form class="hidden" id="crear_div_reporte" method="post">
+        <h2 class="text-3xl xl:mb-6">Creandoo nuevo reporte</h2>
+        
+        <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
+            <div class="relative overflow-hidden border-dashed border-2 bg-white border-gray-300 rounded-xl flex justify-center items-center">
+                <input id="input_foto" type="file" name="imagen" accept="image/*" class="hover:scale-105 duration-150 transition-all hover:cursor-pointer xl:py-2 xl:px-1 rounded-xl bg-gray-300 block" >
+                <img id="vista_previa" src="" class="hidden rounded-xl">
+                <div id="eliminar_foto" class="hover:cursor-pointer text-red-700 font-bold  absolute xl:top-0 xl:right-0 hidden xl:py-1 xl:px-2 bg-white rounded-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-150 ">
+                    <button type="button"  class=" text-2xl  hover:cursor-pointer">x</button>
+                </div>
+            </div>
+            <script>
+                const vista_previa=document.getElementById('vista_previa');
+                const input_foto=document.getElementById('input_foto');
+                const eliminar_foto=document.getElementById('eliminar_foto');
 
-                <p>{{ $report->comment }}</p>
+                //con una url temporal
+                input_foto.addEventListener('change',(event)=>{
+                    //captura el archivo seleccionado en forma de array
+                    const archivo=event.target.files[0];
+                    if(archivo){
+                        const url_temporal=URL.createObjectURL(archivo);
+                        vista_previa.src=url_temporal;
+                        vista_previa.classList.remove('hidden');
+                        vista_previa.classList.add('block');
+                        input_foto.classList.remove('block');
+                        input_foto.classList.add('hidden');
+                        eliminar_foto.classList.remove('hidden');
+                        eliminar_foto.classList.add('block');
 
-                <div class="card-actions justify-end">
-                    <div class="text-blue-700">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
+                    }
+                });
+
+                eliminar_foto.addEventListener('click',()=>{
+                    if(vista_previa.src){
+                        URL.revokeObjectURL(vista_previa.src);
+                    }
+                    vista_previa.src="";
+                    input_foto.value="";
+                    eliminar_foto.classList.remove('block');
+                    eliminar_foto.classList.add('hidden');
+                    input_foto.classList.remove('hidden');
+                    input_foto.classList.add('block');
+                    
+                });
+            </script>  
+            <div class="flex flex-col justify-center xl:gap-y-2">
+                <div class="grid xl:grid-cols-4">
+                    <div class="xl:col-span-2 xl:mb-3">
+                        <input disabled class="xl:py-2 text-gray-500 bg-white border-gray-300 rounded-lg xl:px-2" name="nombre" placeholder="Subido por cristian"/>
+                    </div>
+                    <div class="col-span-3 justify-center xl:gap-5">
+                        <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-white border-gray-300 xl:rounded-lg xl:pl-2 focus:border-gray-400 xl:py-2 w-full hover:outline-0"/>
+                    </div>
+                    <div class="col-span-1 justify-center items-center flex">
+                        <button type="button" id="btn_direccion" class="btn bg-gray-300 hover:scale-105 duration-150">Usar mi ubicacion</button>
+                    </div>
+                    <script>
+                        const btn_direccion=document.getElementById('btn_direccion');
+                        btn_direccion.addEventListener('click',()=>{
+                        //si el navegador no acepta la localizacion
+                            if(!navigator.geolocation){
+                                alert('no se puede acceder a la ubicacion');
+                                return;
+                            };
+
+                            navigator.geolocation.getCurrentPosition(
+                                //async para decirle al navegador que la siguiente peticion tomara tiempo
+                                async (position)=>{
+                                    //obteniendo las coordenadas
+                                    const latitud_ = position.coords.latitude; 
+                                    const longitud_ = position.coords.longitude;
+                                    try{
+                                        //consultando a una api gratuita para obtener la ubicacion
+                                        //await para hacer paso a paso la peticion y no de corrido
+                                        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitud_}&lon=${longitud_}&zoom=10&addressdetails=1`);      
+                                        //se lee el json una sola vez                                 
+                                        const datas=await response.json();
+
+                                        //extraer datos del lugar
+                                        const info=datas.address;
+
+                                        //obtener datos del lugar
+                                        const pais=info.country || '';
+                                        const departamento=info.state || '';
+                                        const ciudad=info.city || info.county || ''; 
+                                        const distrito =info.suburb || info.city_district || info.town || '';
+                                        const lugar = info.road || info.pedestrian || info.amenity || '';
+                                        const referencia = info.neighbourhood || info.residential || '';
+
+                                        //juntar todo en un arreglo por asi decirlo filtrarlo en un formato de texto omitiendo caracteres vacios ''
+                                        const partes = [pais,departamento,ciudad,distrito, lugar, referencia].filter(texto => texto !== '');
+                                        const direccionFormateada = partes.join(' - ');//se unse todo mediante
+                                        
+                                        
+                                        //insertando datos en el input
+                                        const input_direccion=document.getElementById('direccion');
+                                        input_direccion.value=direccionFormateada;
+
+                                    } catch (error) {
+                                        alert("no se pudo traducir las coordenadas");
+                                        console.error(error);
+                                    }
+                                },
+                                (error) => {
+                                        alert('error inesperado');
+                                    }
+                                )
+                        });
+                    </script>
+
+                </div>
+                <div class="col-span-3 justify-center items-center grid xl:grid-cols-4" >
+                    <input name="descripcion" type="text" class="bg-white rounded-xl border-gray-300 xl:p-3 focus:border-gray-400 hover:outline-0  col-span-3" placeholder="agrega una breve descripcion" >
+                    
                 </div>
             </div>
         </div>
-        @endforeach <!-- Fin del ciclo -->
-    </div>
-    
+        <div class="flex justify-center items-center xl:my-3">
+            <button type="submit" class="btn btn-primary xl:px-15 hover:scale-105 duration-150 transition-all">Crear reporte</button>
+        </div>
+    </form>    
 </main>
 <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10 ">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
@@ -112,7 +264,26 @@
             </div>
         </div>
     </footer>
+<script>
+        const ver=document.getElementById('ver_reporte');
+        const crear=document.getElementById('crear_reporte');
+        const div_mostrar=document.getElementById('mostrar_div_reporte');
+        const div_crear=document.getElementById('crear_div_reporte');
 
+        ver.addEventListener('click',()=>{
+            div_mostrar.classList.remove('hidden');
+            div_mostrar.classList.add('block');
+            div_crear.classList.remove('block');
+            div_crear.classList.add('hidden');
+        });
+        crear.addEventListener('click',()=>{
+            div_crear.classList.remove('hidden');
+            div_crear.classList.add('block');
+            div_mostrar.classList.remove('block');
+            div_mostrar.classList.add('hidden');
+
+        });
+    </script>
 </body>
 
 </html>
