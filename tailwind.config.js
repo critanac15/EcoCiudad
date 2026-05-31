@@ -1,11 +1,17 @@
 /** @type {import('tailwindcss').Config}*/
 export default{
-    content=[
+    content:[
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
     ],
     theme:{
-        extend:{},
+        extend:{
+            fontFamily:{
+                //Agregando fuentes -> Playfair y merriweather
+                playfairDisplay :['"Playfair Display"','serif'],
+                merriWeather:['Merriweather','serif'],
+            },
+        },
     },
     plugins:[],
 }
