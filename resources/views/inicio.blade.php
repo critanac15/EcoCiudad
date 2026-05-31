@@ -9,12 +9,14 @@
 
     <!--Asset ubica la ruta -->
     <link rel="icon" type="image/svg+xml" href="{{asset('logo.svg')}}">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body class="font-light">
-    <header class="xl:grid xl:grid-cols-7 bg-[#021802] text-white xl:py-5">
-        <div class="xl:flex xl:justify-center xl:items-center ">
+    <header class="xl:grid xl:grid-cols-7 bg-[#000000] text-white xl:py-5 xl:px-35 ">
+        <div class="xl:flex xl:justify-start xl:items-center ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
             </svg>
@@ -25,85 +27,84 @@
             <a class="  xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{ route('inicio') }} ">Inicio</a>
             <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('reportes')}}">Reportes</a>
             <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('soporteAyuda')}}">Soporte / ayuda</a>
+            <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="#">Contacto</a>
         </nav>
         <nav class="xl:flex xl:gap-2 items-center ">
-            <a href="{{route('registro')}}" class="bg-[#01c04d] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#4bdf3e] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
-            <a href="{{route('login')}}" class="bg-[#cacaca] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#e1e1e1] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+            <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
+            <a href="{{route('login')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
         </nav>
         
     </header>
     <main>
-        <div class="bg-[#021802] text-[#c5c5c5]">
-            <div class="xl:grid xl:grid-cols-2  xl:px-15 xl:pt-15 xl:pb-25">
+        <div class="bg-[#ffffff]  text-[#000000]">
+            <div class="xl:grid xl:grid-cols-2  xl:px-35 xl:py-30">
                 <div class=" xl:flex xl:flex-col xl:gap-y-5">
-                    <h2 class="xl:text-shadow-lg xl:text-6xl xl:font-extrabold">Conectando ciudadanos para una ciudad mas limpia</h2>
-                    <p>Transforma tu compromiso en acción. EcoCiudad es la plataforma que permite reportar problemas de limpieza y abandono urbano en tiempo real. Tu reporte llega directamente a las autoridades municipales, quienes priorizan y ejecutan la limpieza de tu barrio de manera eficiente.</p>
+                    <p class="text-orange-500 font-bold xl:text-xl uppercase">El mejor cambio comienza aqui</p>
+                    <h2 style="font-family: 'merriWeather', serif;" class="xl:text-shadow-lg xl:text-8xl font-semibold xl:leading-24">Conectando ciudadanos para una ciudad mas limpia</h2>
+                    <p class="text-2xl">Transforma tu compromiso en acción. EcoCiudad es la plataforma que permite reportar problemas de limpieza y abandono urbano en tiempo real. Tu reporte llega directamente a las autoridades municipales, quienes priorizan y ejecutan la limpieza de tu barrio de manera eficiente.</p>
+                    <div class="flex justify-start ">
+                        <a class="xl:px-5 xl:py-3 text-white font-bold xl:rounded-xl bg-amber-400 duration-200 hover:bg-amber-500 hover:cursor-pointer" href="{{route('reportes')}}">Ir a reportes</a>
+                    </div>
                 </div>
                 <figure class="flex items-center justify-end "> 
-                    <img src="https://imgs.search.brave.com/D15VLoaoGA8kQnnZLih7xGcoFuTYotAa3mjApZyZGnw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTYv/ODM2LzE5NC9zbWFs/bC90d28tcGVvcGxl/LXBpY2tpbmctdXAt/dHJhc2gtb24tdGhl/LXN0cmVldC1mcmVl/LXBob3RvLmpwZWc" alt="" class="w-[67%]">
+                    <img src="https://imgs.search.brave.com/D15VLoaoGA8kQnnZLih7xGcoFuTYotAa3mjApZyZGnw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTYv/ODM2LzE5NC9zbWFs/bC90d28tcGVvcGxl/LXBpY2tpbmctdXAt/dHJhc2gtb24tdGhl/LXN0cmVldC1mcmVl/LXBob3RvLmpwZWc" alt="" class="w-[87%]">
                 </figure>
             </div>
         </div>
 <!--Datos analizados-->
-        <div class="bg-[#e1f2e6] xl:grid xl:grid-cols-5 xl:gap-30  xl:px-50 xl:pb-20 xl:pt-40">
-            <div class="col-span-2 xl:flex xl:flex-col xl:gap-y-5">
-                <h3 class="font-bold xl:text-3xl">Analisis de datos</h3>
-                <p>Nuestra plataforma procesa miles de datos geo-localizados en Arequipa para transformar la gestión pública. A través de este panel, las autoridades visualizan puntos críticos de abandono y priorizan la recuperación de espacios, garantizando una ciudad más limpia, segura y conectada para todos los ciudadanos.</p>
+        <div class="bg-[#ffffff] xl:grid xl:grid-cols-4 xl:gap-30  xl:px-35 xl:pb-20 xl:pt-40">
+            <div class="col-span-2 xl:flex xl:flex-col xl:gap-y-15">
+                <h3 style="font-family: 'merriWeather', serif;"  class="font-bold font xl:text-6xl text-center xl:pb-2">Analisis De Datos</h3>
+                <p class="text-lg xl:font-light">Nuestra plataforma procesa miles de datos geo-localizados en Arequipa para transformar la gestión pública. A través de este panel, las autoridades visualizan puntos críticos de abandono y priorizan la recuperación de espacios, garantizando una ciudad más limpia, segura y conectada para todos los ciudadanos.</p>
                 <figure class="flex justify-center items-start">
-                    <img src="https://imgs.search.brave.com/_XnlaV2jX7bvDSiQa-VqTDFHaODUP7g6cgzbDUsVeS4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZW5lcy5lbHBhaXMu/Y29tL3Jlc2l6ZXIv/djIvNURSVEFDTjZM/Rkg1N0NQRjNRM1hK/RFhNRlkuanBnP2F1/dGg9ZmI4MmU4ZGFm/ODUzNzFkNTQyYzUw/MDYxZmU0NjU4MjM3/YzkwMmU1ZjcwMjVk/OWQwNTY1NjkzMWVi/MTE0YTYxNiZ3aWR0/aD00MTQmaGVpZ2h0/PTMxMSZzbWFydD10/cnVl" alt="" class="xl:h-[96%] xl:w-[120%] rounded-2xl">
+                    <img src="https://imgs.search.brave.com/_XnlaV2jX7bvDSiQa-VqTDFHaODUP7g6cgzbDUsVeS4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZW5lcy5lbHBhaXMu/Y29tL3Jlc2l6ZXIv/djIvNURSVEFDTjZM/Rkg1N0NQRjNRM1hK/RFhNRlkuanBnP2F1/dGg9ZmI4MmU4ZGFm/ODUzNzFkNTQyYzUw/MDYxZmU0NjU4MjM3/YzkwMmU1ZjcwMjVk/OWQwNTY1NjkzMWVi/MTE0YTYxNiZ3aWR0/aD00MTQmaGVpZ2h0/PTMxMSZzbWFydD10/cnVl" alt="" class="xl:h-[66%] xl:w-[120%] rounded-2xl">
                 </figure>
             </div>
-            <div class="col-span-3">
-                <div class="xl:grid xl:grid-cols-3 xl:gap-5">
-                    <div class="bg-[#f6f6f6] xl:pl-10 xl:py-5 rounded-2xl xl:pr-5 xl:flex xl:flex-col xl:gap-y-2 shadow-lg">
-                        <li class="font-bold xl:text-xl">Ciudadanos Activos</li>
-                        <p class="xl:text-sm">Usuarios validados</p>
+            <div class="col-span-2">
+                <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
+                    <div class="text-center bg-[#ffffff] xl:px-10 xl:py-12 rounded-4xl xl:flex xl:flex-col xl:gap-y-2 shadow-2xl shadow-black/8">
+                        <div>
+                            <span class="bg-gray-50  xl:px-4 xl:py-3 rounded-br-2xl rounded-tl-2xl text-3xl">25,000</span>
+                        </div>
+                        <p class=" xl:text-2xl xl:pt-5 xl:-mb-2">Ciudadanos Activos</p>
+                        <p class="xl:text-sm font-light">ciudadanos registrados</p>
+                    </div>
+                    <div class="bg-[#ffffff] text-center xl:px-10 xl:py-12  rounded-4xl  xl:flex xl:flex-col xl:gap-y-2 shadow-2xl shadow-black/8">
+                        <div>
+                            <span class="bg-gray-50  xl:px-4 xl:py-3 rounded-br-2xl rounded-tl-2xl text-3xl">25,000</span>
+                        </div>
+                        <p class=" xl:text-2xl xl:pt-5 xl:-mb-2">Numero de Reportes</p>
+                        <p class="xl:text-sm font-light">Reportes enviados</p>
+                    </div>
+                    <div class="bg-[#ffffff] text-center xl:px-10 xl:py-12  rounded-4xl  xl:flex xl:flex-col xl:gap-y-2 shadow-2xl shadow-black/8">
+                        <div>
+                            <span class="bg-gray-50  xl:px-4 xl:py-3 rounded-br-2xl rounded-tl-2xl text-3xl">35</span>
+                        </div>
+                        <p class=" xl:text-2xl xl:pt-5 xl:-mb-2">Distritos Atendidos</p>
+                        <p class="xl:text-sm font-light">Mantenimiento y limpieza concluida</p>
+                    </div>
+                    <div class="bg-[#ffffff] xl:px-10 xl:py-8  rounded-4xl  xl:flex xl:flex-col xl:gap-y-2 shadow-2xl shadow-black/8">
+                        <p class="font-bold xl:text-xl">Parques Recuperados</p>
+                        <p class="xl:text-sm"></p>
                         <span>25,000</span>
-                    </div>
-                    <div class="bg-[#f6f6f6] xl:pl-10 xl:py-5 rounded-2xl xl:pr-5 xl:flex xl:flex-col xl:gap-y-2 shadow-lg">
-                        <li class="font-bold xl:text-xl">Numero de Reportes</li>
-                        <p class="xl:text-sm">Reportes enviados</p>
-                        <span>25,000</span>
-                    </div>
-                    <div class="bg-[#f6f6f6] xl:pl-10 xl:py-5 rounded-2xl xl:pr-5 xl:flex xl:flex-col xl:gap-y-2 shadow-lg">
-                        <li class="font-bold xl:text-xl">Distritos Atendidos</li>
-                        <p class="xl:text-sm">Intervención en el área metropolitana</p>
-                        <span>Cercado, Yanahuara, Cayma, JLByR, etc.</span>
-                    </div>
-                    <div class="bg-[#f6f6f6] xl:pl-10 xl:py-5 rounded-2xl xl:pr-5 xl:flex xl:flex-col xl:gap-y-2 shadow-lg">
-                        <li class="font-bold xl:text-xl">Parques Recuperados</li>
-                        <p class="xl:text-sm">Mantenimiento y limpieza concluida</p>
-                        <span>25,000</span>
-                    </div>
-                    <div class="bg-[#f6f6f6] xl:pl-10 xl:py-5 rounded-2xl xl:pr-5 xl:flex xl:flex-col xl:gap-y-2 shadow-lg">
-                        <li class="font-bold xl:text-xl">Feedback Positivo</li>
-                        <p class="xl:text-sm">Comentarios de vecinos conformes</p>
-                        <span>92%</span>
-                    </div>
-                    <div class="bg-[#f6f6f6] xl:pl-10 xl:py-5 rounded-2xl xl:pr-5 xl:flex xl:flex-col xl:gap-y-2 shadow-lg">
-                        <li class="font-bold xl:text-xl ">Residuos Recuperados</li>
-                        <p class="xl:text-sm">Toneladas métricas recolectadas (aprox)</p>
-                        <span>1,200 t</span>
                     </div>
                     
-                    <div class="bg-[#f6f6f6] xl:pl-10 xl:py-11 rounded-2xl xl:pr-5 xl:flex xl:flex-col xl:gap-y-2  xl:col-span-3 shadow-lg">
-                        <li class="font-bold xl:text-xl">Cada año reducimos el riesgo sanitario en un 40% mediante la eliminación de focos infecciosos.</li>
+                    <div class="bg-[#ffffff] xl:px-10 xl:py-8  rounded-4xl  xl:flex xl:flex-col xl:gap-y-2  xl:col-span-2 shadow-2xl shadow-black/8">
+                        <p class="font-bold xl:text-xl">Cada año reducimos el riesgo sanitario en un 40% mediante la eliminación de focos infecciosos.</p>
                         <p class="xl:text-sm">Gracias a los reportes en tiempo real, logramos intervenir antes de que la acumulación de residuos afecte la salud de las familias arequipeñas en zonas periféricas.</p>
                     </div>
                 </div>
             </div>
         </div>
 <!--Beneficios de una ciudad limpia/ del sistema EcoCiudad-->
-        <div class="bg-[#021802] text-white xl:pt-28 ">
-            <div class="xl:grid xl:grid-cols-3">
-                <div class="col-start-2">
-                    <h2 class="xl:text-4xl text-white font-bold xl:text-center">Beneficios de EcoCiudad</h2>
-                    <p class="text-center text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, beatae voluptas suscipit neque at molestias.</p>
-                </div>
+        <div class="bg-[#000000] text-white xl:py-28 xl:px-35">
+            <div class="flex justify-center items-center">
+                <h2 style="font-family: 'merriWeather', serif;"  class="xl:text-6xl text-white font-bold xl:text-center">Beneficios de EcoCiudad</h2>
             </div>
-            <div class="xl:grid xl:grid-cols-7  xl:py-10 xl:px-40">
-                <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15">
-                    <div class="xl:flex xl:flex-col xl:gap-y-3">
+            
+            <div class="xl:grid xl:grid-cols-7  xl:py-20 xl:gap-5 ">
+                <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15 ">
+                    <div class="xl:flex xl:flex-col xl:gap-y-3 items-start">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-10">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                             </svg>
@@ -113,7 +114,7 @@
                             <p>Se evitará la proliferación de roedores, insectos y olores fétidos.Asi mismo, se reducira la incidencia de enfermedades respiratorias o dermatológicas en niños y ancianos que viven cerca de los puntos críticos o parques en abandono.</p>
                         </div>
                     </div>
-                    <div class="xl:flex xl:flex-col xl:gap-y-3">
+                    <div class="xl:flex xl:flex-col xl:gap-y-3 ">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
                         </svg>
@@ -124,7 +125,7 @@
                     </div>
                 </div>
                 <figure class="xl:col-span-3 flex justify-center">
-                    <img src="https://imgs.search.brave.com/Ym0WpWz2PZAj0edme5oovq7i8hKx7XaYptZr01GxgP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmluY2FyYWlsLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9CbG9nLTgx/XzEuanBn" alt="" class="rounded-2xl xl:w-[90%] xl:h-[80%]" >
+                    <img src="https://imgs.search.brave.com/Ym0WpWz2PZAj0edme5oovq7i8hKx7XaYptZr01GxgP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmluY2FyYWlsLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9CbG9nLTgx/XzEuanBn" alt="" class="rounded-2xl xl:w-[80%] xl:h-[100%]" >
                 </figure>
                 <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15">
                     <div class="xl:flex xl:flex-col xl:gap-y-3">
@@ -150,57 +151,52 @@
             </div>
         </div>
 <!--Pasos / Instrucciones-->
-        <div class="bg-[#e1f2e6] xl:px-50 xl:py-30">
-            <h2 class="xl:text-3xl font-bold xl:text-center xl:pb-15">¿Como realizar un reporte?</h2>
-            <div class="xl:grid xl:grid-cols-3 xl:gap-15">
-                <div class="xl:flex xl:items-center">
+        <div class="bg-[#ffffff] xl:px-35 xl:py-30 xl:grid xl:grid-cols-2 xl:gap-30">
+            <div>
+                <p class="text-gray-500 xl:text-2xl xl:pb-5 uppercase">Facil y rapido</p>
+                <h2 style="font-family: 'merriWeather', serif;"  class="xl:text-6xl font-bold xl:text-start xl:pb-15 xl:leading-19">¿Como realizar un reporte?</h2>
+                <div class="flex flex-col xl:gap-y-8">
                     <div>
-
-                        <figure class="xl:flex justify-center">
-                            <img src="https://imgs.search.brave.com/3qJvDOvdbW5FQOaeaPiVS9VcPrE_4kXMTHW0yFuk5NM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cy4x/MjNyZi5jb20vNDUw/d20vZ3N0b2Nrc3R1/ZGlvL2dzdG9ja3N0/dWRpbzE4MDYvZ3N0/b2Nrc3R1ZGlvMTgw/NjAwMjg5LzEwNDA4/ODgwMi1jb21wYXJ0/aWVuZG8tbGEtdmlz/dGEtdmlzdGEtdHJh/c2VyYS1kZWwtam92/ZW4tZm90b2dyYWZp/YW5kby1sYS12aXN0/YS11c2FuZG8tdW4t/dGVsJUMzJUE5Zm9u/by1pbnRlbGlnZW50/ZS5qcGc_dmVyPTY" alt="" class="xl:w-[70%]  xl:rounded-2xl">
-                        </figure>
+                        <h2 class="font-bold xl:text-2xl text-gray-600">Toma una foto del lugar</h2>
                         <p>Toma una fotografía del lugar en estado de abandono, acumulación de residuos o infraestructura dañada. Asegúrate de que el problema sea visible.</p>
                     </div>
-                </div>
-                <div class="xl:flex xl:items-center">
                     <div>
-
-                        <figure class="xl:flex justify-center">
-                            <img src="https://imgs.search.brave.com/A31tQyMQFLrtcZCjj8cEBurBh6oYFWozgtXloia_nH8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM5/MTY5NjcwMC9lcy9m/b3RvL2VzdG95LWVz/Y3JpYmllbmRvLWFs/Z28taW1wb3J0YW50/ZS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9U1BTY1NTZzZv/WHNxc1piN1UyTDds/SzlWSG9FdTdoczlZ/ZzAtZlg3eDhXbz0" alt="" class="xl:w-[70%] xl:rounded-2xl">
-                        </figure>
+                        <h2 class="font-bold xl:text-2xl text-gray-600">Agrega una breve descripción</h2>
                         <p>Carga la foto en nuestra plataforma. Añade una breve descripción del lugar; el sistema registrará la fecha y ubicación de forma automática.</p>
                     </div>
-                </div>
-                <div class="xl:flex xl:items-center">
                     <div>
-                        <figure class="xl:flex justify-center">
-                            <img src="https://imgs.search.brave.com/DdOsbGRWyJ1w0tTAeRZ-G3ga35VsBBHWYGnRpVNTHo0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM0/OTM5MDUxNS9lcy9m/b3RvL2lkZWEtZGUt/bHVnYXItZGUtdHJh/YmFqby1zaW4tcGFw/ZWwtZmlybWEtZWxl/Y3RyJUMzJUIzbmlj/YS1maXJtYS1lbGVj/dHIlQzMlQjNuaWNh/LWdlc3RpJUMzJUIz/bi1kb2N1bWVudGFs/LmpwZz9iPTEmcz02/MTJ4NjEyJnc9MCZr/PTIwJmM9U2lWWm1F/Uldtd2lPTXZyeDBn/bEJIaFhzY0JzY3J5/dF9tS3dzT3IycnhD/QT0" alt="" class="xl:w-[70%] xl:rounded-2xl">
-                        </figure>
+                        <h2 class="font-bold xl:text-2xl text-gray-600">Espera a que tu reporte sea solucionado por la autoridad</h2>
                         <p>Las autoridades recibirán tu reporte, le asignarán una prioridad y verás el cambio cuando el camión de basura o equipo de limpieza atienda el lugar.</p>
                     </div>
                 </div>
             </div>
-            <div class="flex justify-center xl:pt-15">
-                <a href="" class="xl:flex xl:gap-2 xl:bg-[#01c04d] xl:py-2 xl:px-6 rounded-2xl hover:bg-[#4bdf3e] hover:cursor-pointer hover:scale-105  duration-200">
-                    <p>Mas informacion</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                </a>
-            </div>
-        </div>
         
+            <div class="xl:flex xl:items-center justify-center">
+                <figure>
+                    <img src="https://imgs.search.brave.com/Cde0GDd9oRlWU9UV3bWcmmQJG3XmE7LXqW9Yo2YKNJ4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE2/NTAyNDczMi9waG90/by9idXNpbmVzc3dv/bWFuLWFuYWx5emlu/Zy1maW5hbmNpYWwt/ZGF0YS1vbi1kaWdp/dGFsLXRhYmxldC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/bE5ZblB6NU9HTE1Y/c2Qyel9pTTk2Mnk5/U0RsR19NcW8xdUtw/WkY2SzctTT0" alt="">
+                </figure>
+            </div>
+            
+        </div>
+<!--Lo que dicen lass personas de nosotros-->
+        <div class="bg-white xl:px-35 xl:pb-35 xl:pt-15 xl:grid xl:grid-cols-3">
+            <div class="">
+                <p class="text-gray-500 xl:text-2xl xl:pb-5 uppercase">Testimonios</p>
+                <h2 style="font-family: 'merriWeather', serif;"  class="font-bold xl:text-6xl xl:leading-19  ">Lo que dicen las personas de Nosotros</h2>
+            </div>
+            <div class="xl:col-span-2 justify-center flex">
+                <figure class="">
+                    <img src="https://imgs.search.brave.com/BWG2UUGHrwCPOxfphRqjWWrk-Pl6AUxjAueLoMPkYuQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3JlYXRlLnZpc3Rh/LmNvbS9hcGkvbWVk/aWEvc21hbGwvMTky/NjQxMjc0L3N0b2Nr/LXBob3RvLXdvcmQt/d3JpdGluZy10ZXh0/LWNsaWVudC10ZXN0/aW1vbmlhbHMtYnVz/aW5lc3MtY29uY2Vw/dC1mb3ItY3VzdG9t/ZXItcGVyc29uYWwt/ZXhwZXJpZW5jZXMt/cmV2aWV3cy1vcGlu/aW9ucy1mZWVkYmFj/ay13cml0dGVu" alt="">
+                </figure>
+            </div>
+
+        </div>
         
     </main>
     <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
-            <div class="xl:flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
-                </svg>
-
+            <div class="">
                 <h2 class=" font-bold xl:text-3xl">EcoCiudad</h2>
-                
             </div>
 
             <div>
