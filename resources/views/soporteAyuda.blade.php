@@ -10,13 +10,12 @@
 
     <!--Asset ubica la ruta -->
     <link rel="icon" type="image/svg+xml" href="{{asset('logo.svg')}}">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
 
-<body class="bg-[#e1f2e6]">
-    <header class="xl:grid xl:grid-cols-7 bg-[#021802] text-white xl:py-5">
-        <div class="xl:flex xl:justify-center xl:items-center ">
+<body >
+    <header class="xl:grid xl:grid-cols-7 bg-[#000000] text-white xl:py-5 xl:px-35 ">
+        <div class="xl:flex xl:justify-start xl:items-center ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
             </svg>
@@ -27,15 +26,18 @@
             <a class="  xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{ route('inicio') }} ">Inicio</a>
             <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('reportes')}}">Reportes</a>
             <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('soporteAyuda')}}">Soporte / ayuda</a>
+            <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-115 hover:outline-[#6b878d] hover:cursor-pointer" href="#">Contacto</a>
         </nav>
         <nav class="xl:flex xl:gap-2 items-center ">
-            <a href="{{route('registro')}}" class="bg-[#01c04d] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#4bdf3e] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
-            <a href="{{route('login')}}" class="bg-[#cacaca] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#e1e1e1] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+            <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
+            <a href="{{route('login')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
         </nav>
+        
+    </header>
     </header>
     <main>
-        <div class="flex justify-center items-center xl:pt-25">
-            <form action="{{route('soporteAyuda')}}" role="search" class="flex items-center ">
+        <div class="flex justify-center items-center xl:pt-25 ">
+            <form action="{{route('soporteAyuda')}}" role="search" class="flex items-center shadow-2xl shadow-black/8 border border-gray-200 rounded-2xl">
                 <div class="flex items-center bg-white  rounded-2xl xl:w-96 ">
                     <input type="search" list="opciones-soporte" placeholder="¿En qué podemos ayudarte?" class="xl:px-3 xl:py-2 w-full focus:outline-0 border-0 text-gray-700">
                     <button type="submit" class="pr-3 pl-1 cursor-pointer">
@@ -54,60 +56,133 @@
             </form>
         </div>
         <div class="xl:grid xl:grid-cols-3  xl:gap-10 xl:px-20 xl:py-20 font-light">
-            <div class="flex justify-center items-center bg-white xl:rounded-xl xl:py-7">
-                <div>
-                    <h2 class="xl:text-2xl text-center">Mi cuenta y registro</h2>
-                    <div class="preview bg-base-100 relative flex min-h-24 max-w-4xl min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden bg-cover bg-top p-4 xl:py-10 ">
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1" open>
-                            <summary class="collapse-title font-semibold">¿Cómo puedo crear una cuenta?</summary>
-                            <div class="collapse-content text-sm">Al registrarte, el sistema te pedira tu Nmro de DNI para que el sistema pueda verificar que  eres un ciudadano real. Asi mismo necesitaras ingresar un correo electronico valido y crear una contraseña segura.</div>
+            <div class="flex flex-col items-center bg-white xl:rounded-xl xl:py-7 shadow-2xl shadow-black/10 px-4 py-6">
+                <div class="w-full max-w-4xl min-w-[18rem]">
+                    <h2 class="xl:text-2xl text-xl font-bold text-gray-800 text-center mb-6">Mi cuenta y registro</h2>
+                    
+                    <div class="flex flex-col gap-3">
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-1" open>
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                ¿Cómo puedo crear una cuenta?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Al registrarte, el sistema te pedirá tu Nro de DNI para que el sistema pueda verificar que eres un ciudadano real. Asimismo, necesitarás ingresar un correo electrónico válido y crear una contraseña segura.
+                            </div>
                         </details>
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
-                            <summary class="collapse-title font-semibold">Olvidé mi contraseña, ¿qué hago?</summary>
-                            <div class="collapse-content text-sm">Haz clic en "Olvidé mi contraseña" en la pantalla de ingreso y te enviaremos un enlace de recuperación a tu correo registrado.</div>
-                        </details>
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
-                            <summary class="collapse-title font-semibold">¿Pueden usar mi cuenta otros familiares?</summary>
-                            <div class="collapse-content text-sm">Se recomienda una cuenta por persona (DNI), ya que los reportes son personales para garantizar la veracidad de la información.</div>
-                        </details>
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center justify-center bg-white xl:rounded-xl xl:py-7">
-                <div>
-                    <h2 class="xl:text-2xl text-center">Como reportar</h2>
-                    <div class="preview bg-base-100 relative flex min-h-24 max-w-4xl min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden bg-cover bg-top p-4 xl:py-10 ">
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1" open>
-                            <summary class="collapse-title font-semibold">¿Qué fotos debo subir en mi reporte?</summary>
-                            <div class="collapse-content text-sm">Sube una foto clara del lugar afectado (parque, berma o calle). Evita fotos borrosas para que las autoridades identifiquen rápido el problema.</div>
-                        </details>
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
-                            <summary class="collapse-title font-semibold">¿La ubicación se marca sola?</summary>
-                            <div class="collapse-content text-sm">Sí, al subir la foto desde el lugar, el sistema detecta automáticamente las coordenadas. Asegúrate de tener el GPS activado.</div>
-                        </details>
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
-                            <summary class="collapse-title font-semibold">How do I update my profile information?</summary>
-                            <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
-                        </details>
-                    </div>
 
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-1">
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                Olvidé mi contraseña, ¿qué hago?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Haz clic en "Olvidé mi contraseña" en la pantalla de ingreso y te enviaremos un enlace de recuperación a tu correo registrado.
+                            </div>
+                        </details>
+
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-1">
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                ¿Pueden usar mi cuenta otros familiares?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Se recomienda una cuenta por persona (DNI), ya que los reportes son personales para garantizar la veracidad de la información.
+                            </div>
+                        </details>
+                    </div>
                 </div>
             </div>
-            <div class="flex items-center justify-center bg-white xl:rounded-xl xl:py-7">
-                <div>
-                    <h2 class="xl:text-2xl text-center">Privacidad y Seguridad</h2>
-                    <div class="preview bg-base-100 relative flex min-h-24 max-w-4xl min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden bg-cover bg-top p-4 xl:py-10 ">
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1" open>
-                            <summary class="collapse-title font-semibold">¿Quiénes pueden ver mis datos personales?</summary>
-                            <div class="collapse-content text-sm">Tus datos solo son visibles para los administradores municipales autorizados. Otros ciudadanos solo verán tu nombre en los comentarios.</div>
+
+            <div class="flex flex-col items-center bg-white xl:rounded-xl xl:py-7 shadow-2xl shadow-black/10 px-4 py-6">
+                <div class="w-full max-w-4xl min-w-[18rem]">
+                    <h2 class="xl:text-2xl text-xl font-bold text-gray-800 text-center mb-6">Cómo reportar</h2>
+                    
+                    <div class="flex flex-col gap-3">
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-2" open>
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                ¿Qué fotos debo subir en mi reporte?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Sube una foto clara del lugar afectado (parque, berma o calle). Evita fotos borrosas para que las autoridades identifiquen rápido el problema.
+                            </div>
                         </details>
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
-                            <summary class="collapse-title font-semibold">¿Cómo denuncio un comentario ofensivo?</summary>
-                            <div class="collapse-content text-sm">Si ves un comentario inapropiado en un reporte, puedes notificarnos a través del botón de soporte para moderar la comunidad.</div>
+
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-2">
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                ¿La ubicación se marca sola?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Sí, al subir la foto desde el lugar, el sistema detecta automáticamente las coordenadas. Asegúrate de tener el GPS activado.
+                            </div>
                         </details>
-                        <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
-                            <summary class="collapse-title font-semibold">How do I update my profile information?</summary>
-                            <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
+
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-2">
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                How do I update my profile information?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Go to "My Account" settings and select "Edit Profile" to make changes.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center bg-white xl:rounded-xl xl:py-7 shadow-2xl shadow-black/10 px-4 py-6">
+                <div class="w-full max-w-4xl min-w-[18rem]">
+                    <h2 class="xl:text-2xl text-xl font-bold text-gray-800 text-center mb-6">Privacidad y Seguridad</h2>
+                    
+                    <div class="flex flex-col gap-3">
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-3" open>
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                ¿Quiénes pueden ver mis datos personales?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Tus datos solo son visibles para los administradores municipales autorizados. Otros ciudadanos solo verán tu nombre en los comentarios.
+                            </div>
+                        </details>
+
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-3">
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                ¿Cómo denuncio un comentario ofensivo?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Si ves un comentario inapropiado en un reporte, puedes notificarnos a través del botón de soporte para moderar la comunidad.
+                            </div>
+                        </details>
+
+                        <details class="group border border-gray-200 bg-white rounded-lg overflow-hidden" name="grupo-3">
+                            <summary class="flex justify-between items-center font-semibold p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-gray-50 transition-colors">
+                                How do I update my profile information?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-gray-500">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-sm p-4 pt-0 text-gray-600 border-t border-gray-100 mt-2">
+                                Go to "My Account" settings and select "Edit Profile" to make changes.
+                            </div>
                         </details>
                     </div>
                 </div>
@@ -141,11 +216,8 @@
     </main>
     <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
-            <div class="xl:flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
-                </svg>
-
+            <div class="">
+                
                 <h2 class=" font-bold xl:text-3xl">EcoCiudad</h2>
                 
             </div>
