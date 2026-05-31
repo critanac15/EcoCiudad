@@ -133,7 +133,6 @@
 
 <!---Creando la estructura para poder crear reportes-->
     <form class="hidden" id="crear_div_reporte" method="post">
-        <h2 class="text-3xl xl:mb-6">Creandoo nuevo reporte</h2>
         
         <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
             <div class="relative overflow-hidden border-dashed border-2 bg-white border-gray-300 rounded-xl flex justify-center items-center">
@@ -180,14 +179,14 @@
             </script>  
             <div class="flex flex-col justify-center xl:gap-y-2">
                 <div class="grid xl:grid-cols-4">
-                    <div class="xl:col-span-2 xl:mb-3">
-                        <input disabled class="xl:py-2 text-gray-500 bg-white border-gray-300 rounded-lg xl:px-2" name="nombre" placeholder="Subido por cristian"/>
+                    <div class="xl:col-span-3 xl:mb-3">
+                        <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian"/>
                     </div>
                     <div class="col-span-3 justify-center xl:gap-5">
-                        <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-white border-gray-300 xl:rounded-lg xl:pl-2 focus:border-gray-400 xl:py-2 w-full hover:outline-0"/>
+                        <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 xl:rounded-lg xl:pl-2 focus:border-gray-400 xl:py-2 w-full hover:outline-0"/>
                     </div>
-                    <div class="col-span-1 justify-center items-center flex">
-                        <button type="button" id="btn_direccion" class="btn bg-gray-300 hover:scale-105 duration-150">Usar mi ubicacion</button>
+                    <div class="col-span-1 justify-end items-center flex">
+                        <button type="button" id="btn_direccion" class=" xl:px-4 xl:py-2 rounded-lg hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 ">Usar mi ubicacion</button>
                     </div>
                     <script>
                         const btn_direccion=document.getElementById('btn_direccion');
@@ -244,23 +243,19 @@
                     </script>
 
                 </div>
-                <div class="col-span-3 justify-center items-center grid xl:grid-cols-4" >
-                    <input name="descripcion" type="text" class="bg-white rounded-xl border-gray-300 xl:p-3 focus:border-gray-400 hover:outline-0  col-span-3" placeholder="agrega una breve descripcion" >
-                    
+                <div class="col-span-4 overflow-y-scroll justify-center items-center grid xl:grid-cols-4" >
+                    <textarea name="descripcion"  class="bg-gray-100 rounded-xl xl:p-3 text-wrap focus:border-gray-400 hover:outline-0   col-span-4" placeholder="agrega una breve descripcion" rows="4"></textarea>
                 </div>
             </div>
         </div>
         <div class="flex justify-center items-center xl:my-3">
-            <button type="submit" class="btn btn-primary xl:px-15 hover:scale-105 duration-150 transition-all">Crear reporte</button>
+            <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-15 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
         </div>
     </form>    
 </main>
 <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10 ">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
-            <div class="xl:flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
-                </svg>
+            <div class="">
 
                 <h2 class=" font-bold xl:text-3xl">EcoCiudad</h2>
                 
