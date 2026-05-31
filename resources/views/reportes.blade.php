@@ -10,8 +10,7 @@
 
     <!--Asset ubica la ruta -->
     <link rel="icon" type="image/svg+xml" href="{{asset('logo.svg')}}">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
     <style>
         @keyframes aparecer {
             from{opacity: 0;}
@@ -50,13 +49,13 @@
     <!-- CONTENEDOR DE TARJETAS (GRID) -->
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
     
-<main class="xl:px-20 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen xl:px-35">
-    <div class="xl:flex xl:gap-5 xl:mb-10">
+<main class="xl:px-35 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen">
+    <div class="xl:flex xl:gap-5 xl:mb-10 text-white ">
         <div>
-            <button id="ver_reporte"  class="btn btn-accent xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>            
+            <button id="ver_reporte"  class="bg-violet-700  xl:py-3 xl:px-4  hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>            
         </div>
         <div>
-            <button id="crear_reporte" class="btn btn-accent xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
+            <button id="crear_reporte" class="bg-violet-700  xl:py-3 xl:px-4 hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
         </div>
     </div>
     
@@ -91,27 +90,41 @@
                     </select>
                 </div>
                 
-                <input type="text" name="username" placeholder="Buscar por usuario" class="bg-white border-gray-300 xl:rounded-lg xl:pl-2 focus:border-gray-400 w-full max-w-xs hover:outline-0"/>
-                <input type="date" name="date" class="bg-white border-gray-300 xl:rounded-lg xl:px-2 focus:border-gray-400 w-full max-w-xs hover:outline-0 hover:cursor-text ">
-                <button type="submit" class="btn btn-primary xl:hover:scale-105 transition-all duration-150">Filtrar</button>
+                <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200"/>
+                <input type="date" name="date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
+                <button type="submit" class="bg-blue-500  font-bold xl:px-5 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
             </form>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 gap-9">
             @foreach($reports as $report)
-            <div class="card bg-base-100 shadow-xl">
-                <figure>
-                <img src="{{ asset('storage/' . $report->image_path) }}" alt="Reporte" />
+            <div class=" xl:p-5 rounded-xl shadow-xl relative">
+                @php
+                    $estado = 'solucionado';//objeto de prueba, luego poner el valor de la DB 
+                    
+                    $colorClase = '';
+                    if($estado === 'solucionado') {
+                        $colorClase = 'bg-green-400';
+                    } elseif($estado === 'pendiente') {
+                        $colorClase = 'bg-gray-400';
+                    } elseif($estado === 'en abandono') {
+                        $colorClase = 'bg-red-500';
+                    }
+                @endphp
+                
+                <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 xl:py-1 rounded-lg">{{$estado}}</span>
+                <div class="flex gap-4 xl:mb-2">
+                    <h2 class="text-gray-600 text-sm">{{ $report->username }}</h2>
+                    <div class="text-gray-600 text-sm">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
+                </div>
+                <h3 class="xl:text-2xl">Acumulacion de desmonte</h3>
+                <p class="text-gray-600 text-sm xl:mb-2">Ubicacion localizada</p>
+                <div>
+                    <p>{{ $report->comment }}</p>
+                </div>
+                <figure class="flex justify-center items-center">
+                    <img src="https://imgs.search.brave.com/zfMtD_YwkW0xG0hyPmu_65H1onSb_Bw48ZQMfY63qbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTEv/NDkwLzgxMS9zbWFs/bC9sZXR0ZXItbi1m/b250LW9yYW5nZS1m/cmFtZS11cHBlcmNh/c2UtZm9yLWNoaWxk/cmVuLXRveS1sZWFy/bmluZy1vbi1zb2xp/ZC1iYWNrZ3JvdW5k/LXBob3RvLkpQRw" alt="Reporte" class="rounded-xl"/>
                 </figure>
                 
-                <div class="card-body">
-                    <h2 class="card-title">{{ $report->username }}</h2>
-                    
-                    <p>{{ $report->comment }}</p>
-                    
-                    <div class="card-actions justify-end">
-                        <div class="text-blue-700">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
-                    </div>
-                </div>
             </div>
             @endforeach
         </div>
