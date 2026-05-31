@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <figure class="xl:col-span-3 flex justify-center">
-                    <img src="https://imgs.search.brave.com/Ym0WpWz2PZAj0edme5oovq7i8hKx7XaYptZr01GxgP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmluY2FyYWlsLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9CbG9nLTgx/XzEuanBn" alt="" class="rounded-2xl xl:w-[80%] xl:h-[100%]" >
+                    <img src="https://imgs.search.brave.com/Ym0WpWz2PZAj0edme5oovq7i8hKx7XaYptZr01GxgP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmluY2FyYWlsLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9CbG9nLTgx/XzEuanBn" alt="" class="rounded-2xl xl:w-[80%] xl:h-[90%]" >
                 </figure>
                 <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15">
                     <div class="xl:flex xl:flex-col xl:gap-y-3">
@@ -134,7 +134,7 @@
                         </svg>
 
                         <div class="xl:flex xl:flex-col xl:gap-y-2">
-                            <h3 class="font-bold xl:text-2xl">Recuperacion de lugaras</h3>
+                            <h3 class="font-bold xl:text-2xl">Recuperacion de lugares</h3>
                             <p> Seguridad: Los lugares limpios y cuidados disuaden la delincuencia.<br>Salud Pública: Se eliminan focos infecciosos y criaderos de plagas de manera preventiva antes de que se conviertan en una crisis sanitaria.</p>
                         </div>
                     </div>
