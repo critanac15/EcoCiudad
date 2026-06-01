@@ -22,9 +22,9 @@ Route::get('soporteAyuda',function(){
 })->name('soporteAyuda');
 
 //Rutas para login y registro
-Route::get('login',function(){
-    return view('login');
-})->name('login');
+Route::get('loginUser',function(){
+    return view('loginUser');
+})->name('loginUser');
 Route::get('registro',function(){
     return view('registro');
 })->name('registro');
