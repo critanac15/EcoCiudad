@@ -12,6 +12,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
+                //Agregando fuentes -> Playfair y merriweather
+                playfairDisplay :['"Playfair Display"','serif'],
+                merriWeather:['Merriweather','serif'],
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
