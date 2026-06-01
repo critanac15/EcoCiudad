@@ -29,4 +29,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    //declaracion de variables con protected para que eten protegidAS
+    protected $table = 'usuarios';
+    protected $primaryKey = 'id_usuario';
+
+    //funcion para la relacion eloquente
+    //has many= relacion de 1 a N
+    public function reportes() {
+        return $this->hasMany(Reporte::class, 'id_usuario');
+    }
 }
