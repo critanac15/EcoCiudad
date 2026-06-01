@@ -26,7 +26,7 @@
 </head>
 
 <body class="flex flex-col h-full">
-    <header class="xl:grid xl:grid-cols-7 bg-[#000000] text-white xl:py-5 xl:px-35 ">
+    <header class="xl:grid xl:grid-cols-7 bg-[#000000] text-white xl:py-5 xl:px-40 ">
         <div class="xl:flex xl:justify-start xl:items-center ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
@@ -42,14 +42,14 @@
         </nav>
         <nav class="xl:flex xl:gap-2 items-center ">
             <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
-            <a href="{{route('login')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+            <a href="{{route('loginUser')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
         </nav>
         
     </header>
     <!-- CONTENEDOR DE TARJETAS (GRID) -->
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
     
-<main class="xl:px-35 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen">
+<main class="xl:px-40 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen">
     <div class="xl:flex xl:gap-5 xl:mb-10 text-white ">
         <div>
             <button id="ver_reporte"  class="bg-violet-700  xl:py-3 xl:px-4  hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>            
@@ -90,7 +90,7 @@
                     </select>
                 </div>
                 
-                <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200"/>
+                <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200"/>
                 <input type="date" name="date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
                 <button type="submit" class="bg-blue-500  font-bold xl:px-5 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
             </form>
@@ -183,7 +183,7 @@
                         <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian"/>
                     </div>
                     <div class="col-span-3 justify-center xl:gap-5">
-                        <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 xl:rounded-lg xl:pl-2 focus:border-gray-400 xl:py-2 w-full hover:outline-0"/>
+                        <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0    xl:rounded-lg xl:pl-22 border-1 xl:py-2 w-full hover:outline-0"/>
                     </div>
                     <div class="col-span-1 justify-end items-center flex">
                         <button type="button" id="btn_direccion" class=" xl:px-4 xl:py-2 rounded-lg hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 ">Usar mi ubicacion</button>
@@ -244,12 +244,12 @@
 
                 </div>
                 <div class="col-span-4 overflow-y-scroll justify-center items-center grid xl:grid-cols-4" >
-                    <textarea name="descripcion"  class="bg-gray-100 rounded-xl xl:p-3 text-wrap focus:border-gray-400 hover:outline-0   col-span-4" placeholder="agrega una breve descripcion" rows="4"></textarea>
+                    <textarea name="descripcion"  class="bg-gray-100 rounded-xl xl:p-3 text-wrap border-1 hover:outline-0   col-span-4" placeholder="agrega una breve descripcion" rows="4"></textarea>
                 </div>
             </div>
         </div>
         <div class="flex justify-center items-center xl:my-3">
-            <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-15 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+            <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
         </div>
     </form>    
 </main>
