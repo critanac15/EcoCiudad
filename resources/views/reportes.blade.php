@@ -96,7 +96,7 @@
             </form>
         </div>
         <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 gap-9">
-            @foreach($reports as $report)
+            
             <div class=" xl:p-5 rounded-xl shadow-xl relative">
                 @php
                     $estado = 'solucionado';//objeto de prueba, luego poner el valor de la DB 
@@ -113,20 +113,20 @@
                 
                 <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 xl:py-1 rounded-lg">{{$estado}}</span>
                 <div class="flex gap-4 xl:mb-2">
-                    <h2 class="text-gray-600 text-sm">{{ $report->username }}</h2>
-                    <div class="text-gray-600 text-sm">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
+                    <h2 class="text-gray-600 text-sm">username</h2>
+                    <div class="text-gray-600 text-sm">115/15/2025</div>
                 </div>
                 <h3 class="xl:text-2xl">Acumulacion de desmonte</h3>
                 <p class="text-gray-600 text-sm xl:mb-2">Ubicacion localizada</p>
                 <div>
-                    <p>{{ $report->comment }}</p>
+                    <p>commentariooo</p>
                 </div>
                 <figure class="flex justify-center items-center">
                     <img src="https://imgs.search.brave.com/zfMtD_YwkW0xG0hyPmu_65H1onSb_Bw48ZQMfY63qbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTEv/NDkwLzgxMS9zbWFs/bC9sZXR0ZXItbi1m/b250LW9yYW5nZS1m/cmFtZS11cHBlcmNh/c2UtZm9yLWNoaWxk/cmVuLXRveS1sZWFy/bmluZy1vbi1zb2xp/ZC1iYWNrZ3JvdW5k/LXBob3RvLkpQRw" alt="Reporte" class="rounded-xl"/>
                 </figure>
                 
             </div>
-            @endforeach
+            
         </div>
     </div>
 <!------------------------------------------>
