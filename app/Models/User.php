@@ -30,7 +30,7 @@ class User extends Authenticatable
         ];
     }
     //declaracion de variables con protected para que eten protegidAS
-    protected $table = 'usuarios';
+    protected $table = 'users';
     protected $primaryKey = 'id_usuario';
 
     //funcion para la relacion eloquente
