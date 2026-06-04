@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,6 +16,9 @@ Route::get('inicio',function(){
 Route::get('/reportes',function(){
     return view('reportes');
 })->name('reportes');
+Route::get('/reportes',[ReporteController::class, 'index'])->name('reportes');
+
+
 
 Route::get('/contacto',function(){
     return view('contacto');
