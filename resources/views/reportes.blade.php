@@ -273,7 +273,12 @@
             </div>
         </div>
         <div class="flex justify-center items-center xl:my-3">
-            <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+            @auth
+                    <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+            @else
+                    <button type="button" onclick="alert('inicie sesion primero')" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+            @endauth
+            
         </div>
     </form>    
 </main>
