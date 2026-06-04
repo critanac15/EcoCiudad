@@ -23,7 +23,7 @@
     <div id="mostrar_register" class="w-full max-w-5xl flex flex-col gap-4">
 
         <div class="self-start">
-            <a href="/" class="flex items-center gap-2 text-black font-medium hover:underline hover:underline-offset-4 transition-all">
+            <a href="{{ url()->previous() == url()->current() ? route('inicio')  : url()->previous()}}" class="flex items-center gap-2 text-black font-medium hover:underline hover:underline-offset-4 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>

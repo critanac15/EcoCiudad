@@ -16,6 +16,10 @@ Route::get('/reportes',function(){
     return view('reportes');
 })->name('reportes');
 
+Route::get('/contacto',function(){
+    return view('contacto');
+})->name('contacto');
+
 //Rutas para soporte y ayuda
 Route::get('soporteAyuda',function(){
     return view('soporteAyuda');
