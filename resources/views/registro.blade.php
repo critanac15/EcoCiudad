@@ -23,7 +23,7 @@
     <div id="mostrar_register" class="w-full max-w-5xl flex flex-col gap-4">
 
         <div class="self-start">
-            <a href="/" class="flex items-center gap-2 text-black font-medium hover:underline hover:underline-offset-4 transition-all">
+            <a href="{{route('inicio')}}" class="flex items-center gap-2 text-black font-medium hover:underline hover:underline-offset-4 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
@@ -99,7 +99,7 @@
                 </form>
             </div>
             
-            <div class="bg-[ url({{ asset('fondo_imagen_login_register.webp') }})] bg-cover bg-center text-white xl:px-16 xl:py-20 p-8 flex flex-col justify-start min-h-[400px]">
+            <div class="bg-[url('{{ asset('fondo_imagen_login_register.webp') }}')] bg-cover bg-center text-white xl:px-16 xl:py-20 p-8 flex flex-col justify-start min-h-[400px]">
                 <h2 class="xl:text-4xl text-3xl font-bold mb-4">Bienvenido a EcoCiudad</h2>
                 <p class="text-sm xl:text-base leading-relaxed text-purple-100">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. In harum asperiores inventore distinctio sed odit. Tempora sed sunt sapiente doloribus voluptates voluptas.

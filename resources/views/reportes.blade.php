@@ -198,7 +198,13 @@
             <div class="flex flex-col justify-center xl:gap-y-2">
                 <div class="grid xl:grid-cols-4">
                     <div class="xl:col-span-3 xl:mb-3">
-                        <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian"/>
+                        @if (Route::has('login'))
+                            @auth
+                                <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian"/>
+                            @else
+                                <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por: "/>
+                            @endauth      
+                        @endif
                     </div>
                     <div class="col-span-3 justify-center xl:gap-5">
                         <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0    xl:rounded-lg xl:pl-22 border-1 xl:py-2 w-full hover:outline-0"/>
