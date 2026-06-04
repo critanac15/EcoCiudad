@@ -28,7 +28,8 @@ return new class extends Migration
             $table->string('estado')->default('pendiente');
             $table->string('titulo');
             $table->text('descripcion');
-            $table->timestamps();
+            $table->timestamp('report_date');
+            $table->timestamps('');
         });
     }
 
