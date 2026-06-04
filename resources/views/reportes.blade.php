@@ -67,84 +67,92 @@
     <!-- CONTENEDOR DE TARJETAS (GRID) -->
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
     
-<main class="xl:px-40 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen">
-    <div class="xl:flex xl:gap-5 xl:mb-10 text-white ">
-        <div>
-            <button id="ver_reporte"  class="bg-violet-700  xl:py-3 xl:px-4  hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>            
+    <main class="xl:px-40 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen">
+        <div class="xl:flex xl:gap-5 xl:mb-10 text-white ">
+            <div>
+                <button id="ver_reporte"  class="bg-violet-700  xl:py-3 xl:px-4  hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>            
+            </div>
+            <div>
+                <button id="crear_reporte" class="bg-violet-700  xl:py-3 xl:px-4 hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
+            </div>
         </div>
-        <div>
-            <button id="crear_reporte" class="bg-violet-700  xl:py-3 xl:px-4 hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
-        </div>
-    </div>
-    
+        
 
 
-<!---Creando la estructura para ver reportes-->
-    <div class="block" id="mostrar_div_reporte">
-        <div class="xl:flex ">
-            <form action="{{route('reportes')}}" method="GET" class="flex xl:gap-4 xl:mb-10">
-                <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                    <select id="distrito" name="distrito" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
-                        <option value="" disabled selected>Seleccione su distrito</option>
-                        <option value="arequipa">Arequipa (Cercado)</option>
-                        <option value="alto_selva_alegre">Alto Selva Alegre</option>
-                        <option value="cayma">Cayma</option>
-                        <option value="cerro_colorado">Cerro Colorado</option>
-                        <option value="hunter">Jacobo Hunter</option>
-                        <option value="jose_luis_bustamante">José Luis Bustamante y Rivero</option>
-                        <option value="mariano_melgar">Mariano Melgar</option>
-                        <option value="miraflores">Miraflores</option>
-                        <option value="paucarpata">Paucarpata</option>
-                        <option value="socabaya">Socabaya</option>
-                        <option value="yanahuara">Yanahuara</option>
-                    </select>
-                </div>
-                <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                    <select id="estado" name="estado" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
-                        <option value="" disabled selected>Seleccione el estado</option>
-                        <option value="pendiente">Pendiente</option>
-                        <option value="solucionado">Solucionado</option>
-                        <option value="en_abandono">En abandono</option>
-                    </select>
-                </div>
-                
-                <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200"/>
-                <input type="date" name="date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
-                <button type="submit" class="bg-blue-500  font-bold xl:px-5 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
-            </form>
-        </div>
-        <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 gap-9">
-            
-            <div class=" xl:p-5 rounded-xl shadow-xl relative">
-                @php
-                    $estado = 'solucionado';//objeto de prueba, luego poner el valor de la DB 
+    <!---Creando la estructura para ver reportes-->
+        <div class="block" id="mostrar_div_reporte">
+            <div class="xl:flex ">
+                <form action="{{route('reportes')}}" method="GET" class="flex xl:gap-4 xl:mb-10">
+                    <div class="flex flex-col gap-y-2 w-full max-w-sm">
+                        <select id="distrito" name="distrito" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                            <option value="" disabled selected>Seleccione su distrito</option>
+                            <option value="arequipa">Arequipa (Cercado)</option>
+                            <option value="alto_selva_alegre">Alto Selva Alegre</option>
+                            <option value="cayma">Cayma</option>
+                            <option value="cerro_colorado">Cerro Colorado</option>
+                            <option value="hunter">Jacobo Hunter</option>
+                            <option value="jose_luis_bustamante">José Luis Bustamante y Rivero</option>
+                            <option value="mariano_melgar">Mariano Melgar</option>
+                            <option value="miraflores">Miraflores</option>
+                            <option value="paucarpata">Paucarpata</option>
+                            <option value="socabaya">Socabaya</option>
+                            <option value="yanahuara">Yanahuara</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-y-2 w-full max-w-sm">
+                        <select id="estado" name="estado" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                            <option value="" disabled selected>Seleccione el estado</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="solucionado">Solucionado</option>
+                            <option value="en_abandono">En abandono</option>
+                        </select>
+                    </div>
                     
-                    $colorClase = '';
-                    if($estado === 'solucionado') {
-                        $colorClase = 'bg-green-400';
-                    } elseif($estado === 'pendiente') {
-                        $colorClase = 'bg-gray-400';
-                    } elseif($estado === 'en abandono') {
-                        $colorClase = 'bg-red-500';
-                    }
-                @endphp
-                
-                <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 xl:py-1 rounded-lg">{{$estado}}</span>
-                <div class="flex gap-4 xl:mb-2">
-                    <h2 class="text-gray-600 text-sm">username</h2>
-                    <div class="text-gray-600 text-sm">115/15/2025</div>
-                </div>
-                <h3 class="xl:text-2xl">Acumulacion de desmonte</h3>
-                <p class="text-gray-600 text-sm xl:mb-2">Ubicacion localizada</p>
-                <div>
-                    <p>commentariooo</p>
-                </div>
-                <figure class="flex justify-center items-center">
-                    <img src="https://imgs.search.brave.com/zfMtD_YwkW0xG0hyPmu_65H1onSb_Bw48ZQMfY63qbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTEv/NDkwLzgxMS9zbWFs/bC9sZXR0ZXItbi1m/b250LW9yYW5nZS1m/cmFtZS11cHBlcmNh/c2UtZm9yLWNoaWxk/cmVuLXRveS1sZWFy/bmluZy1vbi1zb2xp/ZC1iYWNrZ3JvdW5k/LXBob3RvLkpQRw" alt="Reporte" class="rounded-xl"/>
-                </figure>
+                    <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200"/>
+                    <input type="date" name="date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
+                    <button type="submit" class="bg-blue-500  font-bold xl:px-5 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
+                </form>
+            </div>
+            <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 gap-9">
+
+            
+                @foreach ($reportes as $reporte)
+                    
+                    <div class=" xl:p-5 rounded-xl shadow-xl relative">
+                        @php
+                        $estado = 'solucionado';//objeto de prueba, luego poner el valor de la DB 
+                        
+                        $colorClase = '';
+                        if($estado === 'solucionado') {
+                            $colorClase = 'bg-green-400';
+                        } elseif($estado === 'pendiente') {
+                            $colorClase = 'bg-gray-400';
+                        } elseif($estado === 'en abandono') {
+                            $colorClase = 'bg-red-500';
+                        }
+                        @endphp
+                        
+                        <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 xl:py-1 rounded-lg">{{$estado}}</span>
+                        <div class="flex gap-4 xl:mb-2">
+                            <h2 class="text-gray-600 text-sm">username</h2>
+                            <div class="text-gray-600 text-sm">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
+                        </div>
+                        <h3 class="xl:text-2xl">Acumulacion de desmonte</h3>
+                        <p class="text-gray-600 text-sm xl:mb-2">Ubicacion localizada</p>
+                        <div>
+                            <p>{{ $reporte->descripcion }}</p>
+                        </div>
+                        <figure class="flex justify-center items-center">
+                            <img src="https://imgs.search.brave.com/zfMtD_YwkW0xG0hyPmu_65H1onSb_Bw48ZQMfY63qbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTEv/NDkwLzgxMS9zbWFs/bC9sZXR0ZXItbi1m/b250LW9yYW5nZS1m/cmFtZS11cHBlcmNh/c2UtZm9yLWNoaWxk/cmVuLXRveS1sZWFy/bmluZy1vbi1zb2xp/ZC1iYWNrZ3JvdW5k/LXBob3RvLkpQRw" alt="Reporte" class="rounded-xl"/>
+                        </figure>
+                        
+                    </div>
+                @endforeach
+
                 
             </div>
-            
+
+                
         </div>
     </div>
 <!------------------------------------------>
