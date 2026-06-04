@@ -22,4 +22,10 @@ class Reporte extends Model
     public function imagen() {
         return $this->belongsTo(Imagen::class, 'id_imagen');
     }
+
+    // ./vendor/bin/sail artisan make:model Reporte -m
+    // "-m" de migrate para la base de datos
+    // Definimos los campos que se pueden llenar masivamente.
+    // Esto es una medida de seguridad de Laravel para evitar inyecciones de datos no deseados.
+    protected $fillable = ['id_usuario','id_imagen','fecha','ubicacion','estado','titulo','descripcion']; 
 }
