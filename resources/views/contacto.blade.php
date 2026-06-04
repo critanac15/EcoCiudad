@@ -71,8 +71,46 @@
 
     </header>
 
-    <main class="">
+    <main>
+        <div class="xl:gap-10 xl:px-40 xl:py-20 font-light">
+            <div class="flex flex-col items-center bg-white xl:rounded-xl xl:py-7 shadow-2xl shadow-black/10 px-4 py-6">
+                <div class="w-full max-w-4xl min-w-[18rem]">
+                    <h2 class="xl:text-4xl text-2xl font-bold text-gray-800 text-center mb-6">Contacto Ciudadano</h2>
+                    <p class="xl:text-2xl text-xl font-light text-gray-800 text-center mb-6">Tu participación es clave para construir un entorno más limpio y sostenible. Escríbenos para resolver tus dudas o enviar sugerencias directamente a la gestión municipal.</p>
+                </div>
+                <div class="xl:grid xl:grid-cols-2 xl:gap-10 xl:px-40 xl:py-20 font-light">
+                    <div>
+                        <form action="#" method="POST" class="space-y-6">
+                            @csrf
 
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-gray-800 uppercase tracking-wider mb-2 ">
+                                    Nombre <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="name" name="name" required class="w-full bg-[#f3f4f6] border border-transparent rounded-xl px-4 pyy-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:bg-gray-100 focus:ring-0 transition-all duration-200">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-semibold text-gray-800 uppercase tracking-wider mb-2 ">
+                                    Email <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" required class="w-full bg-[#f3f4f6] border border-transparent rounded-xl px-4 pyy-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:bg-gray-100 focus:ring-0 transition-all duration-200">
+                            </div>
+                            <div>
+                                <label for="mensaje" class="block text-xs font-semibold text-gray-800 uppercase tracking-wider mb-2 ">
+                                    Mensaje <span class="text-red-500">*</span>
+                                </label>
+                                <textarea id="mensaje" name="mensaje" rows="10"required class="w-full bg-[#f3f4f6] border border-transparent rounded-xl px-4 pyy-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:bg-gray-100 focus:ring-0 transition-all duration-200 resize-none"></textarea>
+                            </div>
+                            <div class="pt-2">
+                                <button type="submit" class="inline-flex items-center px-6 py-3 bg-slate-900 border border-transparent rounded-xl font-semibold text-xs text-white uppercase tracking-widest hover:bg-slate-800 active:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ">
+                                Mandar Mensaje
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10 ">
