@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
+
 <body class="font-light">
     <header class="xl:grid xl:grid-cols-7 bg-[#000000] text-white xl:py-5 xl:px-40 ">
         <div class="xl:flex xl:justify-start xl:items-center ">
@@ -31,29 +33,28 @@
         </nav>
         <nav class="xl:flex xl:gap-2 items-center ">
             @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        
-                        <a href="{{route('loginUser')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+            <nav class="flex items-center justify-end gap-4">
+                @auth
+                <a
+                    href="{{ url('/dashboard') }}"
+                    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                    Dashboard
+                </a>
+                @else
 
-                        @if (Route::has('registro'))
-                            
-                            <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
-                        @endif
-                    @endauth
-                </nav>
+                <a href="{{route('loginUser')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+
+                @if (Route::has('registro'))
+
+                <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse </a>
+                @endif
+                @endauth
+            </nav>
             @endif
-            
-            
+
+
         </nav>
-        
+
     </header>
     <main>
         <div class="bg-[#ffffff]  text-[#000000]">
@@ -66,15 +67,15 @@
                         <a class="xl:px-5 xl:py-3 text-white font-bold xl:rounded-xl bg-amber-400 duration-200 hover:bg-amber-500 hover:cursor-pointer" href="{{route('reportes')}}">Ir a reportes</a>
                     </div>
                 </div>
-                <figure class="flex items-center justify-end "> 
+                <figure class="flex items-center justify-end ">
                     <img src="https://imgs.search.brave.com/D15VLoaoGA8kQnnZLih7xGcoFuTYotAa3mjApZyZGnw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTYv/ODM2LzE5NC9zbWFs/bC90d28tcGVvcGxl/LXBpY2tpbmctdXAt/dHJhc2gtb24tdGhl/LXN0cmVldC1mcmVl/LXBob3RvLmpwZWc" alt="" class="w-[87%] ">
                 </figure>
             </div>
         </div>
-<!--Datos analizados-->
+        <!--Datos analizados-->
         <div class="bg-[#ffffff] xl:grid xl:grid-cols-4 xl:gap-28 xl:px-40 xl:pb-20 xl:pt-40">
             <div class="col-span-2 xl:flex xl:flex-col xl:gap-y-15">
-                <h3 style="font-family: 'merriWeather', serif;"  class="font-bold font xl:text-6xl text-center xl:pb-2">Analisis De Datos</h3>
+                <h3 style="font-family: 'merriWeather', serif;" class="font-bold font xl:text-6xl text-center xl:pb-2">Analisis De Datos</h3>
                 <p class="text-lg xl:font-light">Nuestra plataforma procesa miles de datos geo-localizados en Arequipa para transformar la gestión pública. A través de este panel, las autoridades visualizan puntos críticos de abandono y priorizan la recuperación de espacios, garantizando una ciudad más limpia, segura y conectada para todos los ciudadanos.</p>
                 <figure class="flex justify-center items-start">
                     <img src="https://imgs.search.brave.com/_XnlaV2jX7bvDSiQa-VqTDFHaODUP7g6cgzbDUsVeS4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZW5lcy5lbHBhaXMu/Y29tL3Jlc2l6ZXIv/djIvNURSVEFDTjZM/Rkg1N0NQRjNRM1hK/RFhNRlkuanBnP2F1/dGg9ZmI4MmU4ZGFm/ODUzNzFkNTQyYzUw/MDYxZmU0NjU4MjM3/YzkwMmU1ZjcwMjVk/OWQwNTY1NjkzMWVi/MTE0YTYxNiZ3aWR0/aD00MTQmaGVpZ2h0/PTMxMSZzbWFydD10/cnVl" alt="" class="xl:h-[66%] xl:w-[120%] rounded-2xl">
@@ -108,7 +109,7 @@
                         <p class="xl:text-sm"></p>
                         <span>25,000</span>
                     </div>
-                    
+
                     <div class="bg-[#ffffff] xl:px-10 xl:py-8  rounded-3xl  xl:flex xl:flex-col xl:gap-y-2  xl:col-span-2 shadow-2xl shadow-black/8">
                         <p class="font-bold xl:text-xl">Cada año reducimos el riesgo sanitario en un 40% mediante la eliminación de focos infecciosos.</p>
                         <p class="xl:text-sm">Gracias a los reportes en tiempo real, logramos intervenir antes de que la acumulación de residuos afecte la salud de las familias arequipeñas en zonas periféricas.</p>
@@ -116,18 +117,18 @@
                 </div>
             </div>
         </div>
-<!--Beneficios de una ciudad limpia/ del sistema EcoCiudad-->
+        <!--Beneficios de una ciudad limpia/ del sistema EcoCiudad-->
         <div class="bg-[#000000] text-white xl:py-28 xl:px-40">
             <div class="flex justify-center items-center">
-                <h2 style="font-family: 'merriWeather', serif;"  class="xl:text-6xl text-white font-bold xl:text-center">Beneficios de EcoCiudad</h2>
+                <h2 style="font-family: 'merriWeather', serif;" class="xl:text-6xl text-white font-bold xl:text-center">Beneficios de EcoCiudad</h2>
             </div>
-            
+
             <div class="xl:grid xl:grid-cols-7  xl:py-20 xl:gap-5 ">
                 <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15 ">
                     <div class="xl:flex xl:flex-col xl:gap-y-3 items-start">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-10">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                            </svg>
+                        </svg>
 
                         <div class="xl:flex xl:flex-col xl:gap-y-2">
                             <h3 class="font-bold xl:text-2xl">Salud Pública y Prevención de Plagas</h3>
@@ -145,7 +146,7 @@
                     </div>
                 </div>
                 <figure class="xl:col-span-3 flex justify-center">
-                    <img src="https://imgs.search.brave.com/Ym0WpWz2PZAj0edme5oovq7i8hKx7XaYptZr01GxgP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmluY2FyYWlsLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9CbG9nLTgx/XzEuanBn" alt="" class="rounded-2xl xl:w-[80%] xl:h-[90%]" >
+                    <img src="https://imgs.search.brave.com/Ym0WpWz2PZAj0edme5oovq7i8hKx7XaYptZr01GxgP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmluY2FyYWlsLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9CbG9nLTgx/XzEuanBn" alt="" class="rounded-2xl xl:w-[80%] xl:h-[90%]">
                 </figure>
                 <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15">
                     <div class="xl:flex xl:flex-col xl:gap-y-3">
@@ -170,11 +171,11 @@
                 </div>
             </div>
         </div>
-<!--Pasos / Instrucciones-->
+        <!--Pasos / Instrucciones-->
         <div class="bg-[#ffffff] xl:px-40 xl:py-32 xl:grid xl:grid-cols-2 xl:gap-30">
             <div>
                 <p class="text-gray-500 xl:text-2xl xl:pb-5 uppercase">Facil y rapido</p>
-                <h2 style="font-family: 'merriWeather', serif;"  class="xl:text-6xl font-bold xl:text-start xl:pb-15 xl:leading-19">¿Como realizar un reporte?</h2>
+                <h2 style="font-family: 'merriWeather', serif;" class="xl:text-6xl font-bold xl:text-start xl:pb-15 xl:leading-19">¿Como realizar un reporte?</h2>
                 <div class="flex flex-col xl:gap-y-8">
                     <div>
                         <h2 class="font-bold xl:text-2xl text-gray-600">Toma una foto del lugar</h2>
@@ -190,19 +191,19 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="xl:flex xl:items-center justify-center">
                 <figure>
                     <img src="https://imgs.search.brave.com/Cde0GDd9oRlWU9UV3bWcmmQJG3XmE7LXqW9Yo2YKNJ4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE2/NTAyNDczMi9waG90/by9idXNpbmVzc3dv/bWFuLWFuYWx5emlu/Zy1maW5hbmNpYWwt/ZGF0YS1vbi1kaWdp/dGFsLXRhYmxldC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/bE5ZblB6NU9HTE1Y/c2Qyel9pTTk2Mnk5/U0RsR19NcW8xdUtw/WkY2SzctTT0" alt="">
                 </figure>
             </div>
-            
+
         </div>
-<!--Lo que dicen lass personas de nosotros-->
+        <!--Lo que dicen lass personas de nosotros-->
         <div class="bg-white xl:px-40 xl:pb-40 xl:pt-14 xl:grid xl:grid-cols-3">
             <div class="">
                 <p class="text-gray-500 xl:text-2xl xl:pb-5 uppercase">Testimonios</p>
-                <h2 style="font-family: 'merriWeather', serif;"  class="font-bold xl:text-6xl xl:leading-19  ">Lo que dicen las personas de Nosotros</h2>
+                <h2 style="font-family: 'merriWeather', serif;" class="font-bold xl:text-6xl xl:leading-19  ">Lo que dicen las personas de Nosotros</h2>
             </div>
             <div class="xl:col-span-2 justify-center flex">
                 <figure class="">
@@ -211,7 +212,7 @@
             </div>
 
         </div>
-        
+
     </main>
     <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
@@ -256,4 +257,5 @@
         </div>
     </footer>
 </body>
+
 </html>

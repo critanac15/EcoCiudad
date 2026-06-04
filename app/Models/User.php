@@ -29,7 +29,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    //declaracion de variables con protected para que eten protegidAS
+    //declaracion de variables con protected para que esten protegidas
     protected $table = 'users';
     protected $primaryKey = 'id_usuario';
 

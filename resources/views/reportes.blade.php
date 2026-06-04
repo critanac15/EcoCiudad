@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,16 +10,23 @@
 
     <!--Asset ubica la ruta -->
     <link rel="icon" type="image/svg+xml" href="{{asset('logo.svg')}}">
-    
+
     <style>
         @keyframes aparecer {
-            from{opacity: 0;}
-            to{opacity: 1;}
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
-        #mostrar_div_reporte{
+
+        #mostrar_div_reporte {
             animation: aparecer 1s;
         }
-        #crear_div_reporte{
+
+        #crear_div_reporte {
             animation: aparecer 1s;
         }
     </style>
@@ -42,49 +49,48 @@
         </nav>
         <nav class="xl:flex xl:gap-2 items-center ">
             @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        
-                        <a href="{{route('loginUser')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+            <nav class="flex items-center justify-end gap-4">
+                @auth
+                <a
+                    href="{{ url('/dashboard') }}"
+                    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                    Dashboard
+                </a>
+                @else
 
-                        @if (Route::has('registro'))
-                            
-                            <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse  </a>
-                        @endif
-                    @endauth
-                </nav>
+                <a href="{{route('loginUser')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+
+                @if (Route::has('registro'))
+
+                <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse </a>
+                @endif
+                @endauth
+            </nav>
             @endif
         </nav>
-        
+
     </header>
     <!-- CONTENEDOR DE TARJETAS (GRID) -->
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
-    
+
     <main class="xl:px-40 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen">
         <div class="xl:flex xl:gap-5 xl:mb-10 text-white ">
             <div>
-                <button id="ver_reporte"  class="bg-violet-700  xl:py-3 xl:px-4  hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>            
+                <button id="ver_reporte" class="bg-violet-700  xl:py-3 xl:px-4  hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>
             </div>
             <div>
                 <button id="crear_reporte" class="bg-violet-700  xl:py-3 xl:px-4 hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
             </div>
         </div>
-        
 
 
-    <!---Creando la estructura para ver reportes-->
+
+        <!---Creando la estructura para ver reportes-->
         <div class="block" id="mostrar_div_reporte">
             <div class="xl:flex ">
                 <form action="{{route('reportes')}}" method="GET" class="flex xl:gap-4 xl:mb-10">
                     <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                        <select id="distrito" name="distrito" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                        <select id="distrito" name="distrito" class="border border-gray-300 rounded-xl pl-4 pr-12 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
                             <option value="" disabled selected>Seleccione su distrito</option>
                             <option value="arequipa">Arequipa (Cercado)</option>
                             <option value="alto_selva_alegre">Alto Selva Alegre</option>
@@ -100,37 +106,37 @@
                         </select>
                     </div>
                     <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                        <select id="estado" name="estado" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                        <select id="estado" name="estado" class="border border-gray-300 rounded-xl pl-4 pr-12 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
                             <option value="" disabled selected>Seleccione el estado</option>
                             <option value="pendiente">Pendiente</option>
                             <option value="solucionado">Solucionado</option>
                             <option value="en_abandono">En abandono</option>
                         </select>
                     </div>
-                    
-                    <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200"/>
+
+                    <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200" />
                     <input type="date" name="date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
                     <button type="submit" class="bg-blue-500  font-bold xl:px-5 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
                 </form>
             </div>
             <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 gap-9">
 
-            
-                @foreach($reporte as $report    )
+
+                @foreach($reporte as $report )
                 <div class=" xl:p-5 rounded-xl shadow-xl relative">
                     @php
                     $estado = 'solucionado';
-                    
+
                     $colorClase = '';
                     if($estado === 'solucionado') {
-                        $colorClase = 'bg-green-400';
+                    $colorClase = 'bg-green-400';
                     } elseif($estado === 'pendiente') {
-                        $colorClase = 'bg-gray-400';
+                    $colorClase = 'bg-gray-400';
                     } elseif($estado === 'en abandono') {
-                        $colorClase = 'bg-red-500';
+                    $colorClase = 'bg-red-500';
                     }
                     @endphp
-                    
+
                     <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 xl:py-1 rounded-lg">{{$estado}}</span>
                     <div class="flex gap-4 xl:mb-2">
                         <h2 class="text-gray-600 text-sm">username</h2>
@@ -142,159 +148,159 @@
                         <p>{{ $report->descripcion }}</p>
                     </div>
                     <figure class="flex justify-center items-center">
-                        <img src="https://imgs.search.brave.com/zfMtD_YwkW0xG0hyPmu_65H1onSb_Bw48ZQMfY63qbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTEv/NDkwLzgxMS9zbWFs/bC9sZXR0ZXItbi1m/b250LW9yYW5nZS1m/cmFtZS11cHBlcmNh/c2UtZm9yLWNoaWxk/cmVuLXRveS1sZWFy/bmluZy1vbi1zb2xp/ZC1iYWNrZ3JvdW5k/LXBob3RvLkpQRw" alt="Reporte" class="rounded-xl"/>
+                        <img src="https://imgs.search.brave.com/zfMtD_YwkW0xG0hyPmu_65H1onSb_Bw48ZQMfY63qbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTEv/NDkwLzgxMS9zbWFs/bC9sZXR0ZXItbi1m/b250LW9yYW5nZS1m/cmFtZS11cHBlcmNh/c2UtZm9yLWNoaWxk/cmVuLXRveS1sZWFy/bmluZy1vbi1zb2xp/ZC1iYWNrZ3JvdW5k/LXBob3RvLkpQRw" alt="Reporte" class="rounded-xl" />
                     </figure>
-                    
+
                 </div>
                 @endforeach
 
-                
+
             </div>
 
-                
+
         </div>
-    </div>
-<!------------------------------------------>
+        </div>
+        <!------------------------------------------>
 
-<!---Creando la estructura para poder crear reportes-->
-    <form class="hidden" id="crear_div_reporte" method="post">
-        
-        <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
-            <div class="relative overflow-hidden border-dashed border-2 bg-white border-gray-300 rounded-xl flex justify-center items-center">
-                <input id="input_foto" type="file" name="imagen" accept="image/*" class="hover:scale-105 duration-150 transition-all hover:cursor-pointer xl:py-2 xl:px-1 rounded-xl bg-gray-300 block" >
-                <img id="vista_previa" src="" class="hidden rounded-xl">
-                <div id="eliminar_foto" class="hover:cursor-pointer text-red-700 font-bold  absolute xl:top-0 xl:right-0 hidden xl:py-1 xl:px-2 bg-white rounded-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-150 ">
-                    <button type="button"  class=" text-2xl  hover:cursor-pointer">x</button>
+        <!---Creando la estructura para poder crear reportes-->
+        <form class="hidden" id="crear_div_reporte" method="post">
+
+            <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
+                <div class="relative overflow-hidden border-dashed border-2 bg-white border-gray-300 rounded-xl flex justify-center items-center">
+                    <input id="input_foto" type="file" name="imagen" accept="image/*" class="hover:scale-105 duration-150 transition-all hover:cursor-pointer xl:py-2 xl:px-1 rounded-xl bg-gray-300 block">
+                    <img id="vista_previa" src="" class="hidden rounded-xl">
+                    <div id="eliminar_foto" class="hover:cursor-pointer text-red-700 font-bold  absolute xl:top-0 xl:right-0 hidden xl:py-1 xl:px-2 bg-white rounded-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-150 ">
+                        <button type="button" class=" text-2xl  hover:cursor-pointer">x</button>
+                    </div>
                 </div>
-            </div>
-            <script>
-                const vista_previa=document.getElementById('vista_previa');
-                const input_foto=document.getElementById('input_foto');
-                const eliminar_foto=document.getElementById('eliminar_foto');
+                <script>
+                    const vista_previa = document.getElementById('vista_previa');
+                    const input_foto = document.getElementById('input_foto');
+                    const eliminar_foto = document.getElementById('eliminar_foto');
 
-                //con una url temporal
-                input_foto.addEventListener('change',(event)=>{
-                    //captura el archivo seleccionado en forma de array
-                    const archivo=event.target.files[0];
-                    if(archivo){
-                        const url_temporal=URL.createObjectURL(archivo);
-                        vista_previa.src=url_temporal;
-                        vista_previa.classList.remove('hidden');
-                        vista_previa.classList.add('block');
-                        input_foto.classList.remove('block');
-                        input_foto.classList.add('hidden');
-                        eliminar_foto.classList.remove('hidden');
-                        eliminar_foto.classList.add('block');
+                    //con una url temporal
+                    input_foto.addEventListener('change', (event) => {
+                        //captura el archivo seleccionado en forma de array
+                        const archivo = event.target.files[0];
+                        if (archivo) {
+                            const url_temporal = URL.createObjectURL(archivo);
+                            vista_previa.src = url_temporal;
+                            vista_previa.classList.remove('hidden');
+                            vista_previa.classList.add('block');
+                            input_foto.classList.remove('block');
+                            input_foto.classList.add('hidden');
+                            eliminar_foto.classList.remove('hidden');
+                            eliminar_foto.classList.add('block');
 
-                    }
-                });
+                        }
+                    });
 
-                eliminar_foto.addEventListener('click',()=>{
-                    if(vista_previa.src){
-                        URL.revokeObjectURL(vista_previa.src);
-                    }
-                    vista_previa.src="";
-                    input_foto.value="";
-                    eliminar_foto.classList.remove('block');
-                    eliminar_foto.classList.add('hidden');
-                    input_foto.classList.remove('hidden');
-                    input_foto.classList.add('block');
-                    
-                });
-            </script>  
-            <div class="flex flex-col justify-center xl:gap-y-2">
-                <div class="grid xl:grid-cols-4">
-                    <div class="xl:col-span-3 xl:mb-3">
-                        @if (Route::has('login'))
+                    eliminar_foto.addEventListener('click', () => {
+                        if (vista_previa.src) {
+                            URL.revokeObjectURL(vista_previa.src);
+                        }
+                        vista_previa.src = "";
+                        input_foto.value = "";
+                        eliminar_foto.classList.remove('block');
+                        eliminar_foto.classList.add('hidden');
+                        input_foto.classList.remove('hidden');
+                        input_foto.classList.add('block');
+
+                    });
+                </script>
+                <div class="flex flex-col justify-center xl:gap-y-2">
+                    <div class="grid xl:grid-cols-4">
+                        <div class="xl:col-span-3 xl:mb-3">
+                            @if (Route::has('login'))
                             @auth
-                                <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian"/>
+                            <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian" />
                             @else
-                                <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por: "/>
-                            @endauth      
-                        @endif
-                    </div>
-                    <div class="col-span-3 justify-center xl:gap-5">
-                        <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0    xl:rounded-lg xl:pl-22 border-1 xl:py-2 w-full hover:outline-0"/>
-                    </div>
-                    <div class="col-span-1 justify-end items-center flex">
-                        <button type="button" id="btn_direccion" class=" xl:px-4 xl:py-2 rounded-lg hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 ">Usar mi ubicacion</button>
-                    </div>
-                    <script>
-                        const btn_direccion=document.getElementById('btn_direccion');
-                        btn_direccion.addEventListener('click',()=>{
-                        //si el navegador no acepta la localizacion
-                            if(!navigator.geolocation){
-                                alert('no se puede acceder a la ubicacion');
-                                return;
-                            };
+                            <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por: " />
+                            @endauth
+                            @endif
+                        </div>
+                        <div class="col-span-3 justify-center xl:gap-5">
+                            <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0    xl:rounded-lg xl:pl-22 border-1 xl:py-2 w-full hover:outline-0" />
+                        </div>
+                        <div class="col-span-1 justify-end items-center flex">
+                            <button type="button" id="btn_direccion" class=" xl:px-4 xl:py-2 rounded-lg hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 ">Usar mi ubicacion</button>
+                        </div>
+                        <script>
+                            const btn_direccion = document.getElementById('btn_direccion');
+                            btn_direccion.addEventListener('click', () => {
+                                //si el navegador no acepta la localizacion
+                                if (!navigator.geolocation) {
+                                    alert('no se puede acceder a la ubicacion');
+                                    return;
+                                };
 
-                            navigator.geolocation.getCurrentPosition(
-                                //async para decirle al navegador que la siguiente peticion tomara tiempo
-                                async (position)=>{
-                                    //obteniendo las coordenadas
-                                    const latitud_ = position.coords.latitude; 
-                                    const longitud_ = position.coords.longitude;
-                                    try{
-                                        //consultando a una api gratuita para obtener la ubicacion
-                                        //await para hacer paso a paso la peticion y no de corrido
-                                        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitud_}&lon=${longitud_}&zoom=10&addressdetails=1`);      
-                                        //se lee el json una sola vez                                 
-                                        const datas=await response.json();
+                                navigator.geolocation.getCurrentPosition(
+                                    //async para decirle al navegador que la siguiente peticion tomara tiempo
+                                    async (position) => {
+                                            //obteniendo las coordenadas
+                                            const latitud_ = position.coords.latitude;
+                                            const longitud_ = position.coords.longitude;
+                                            try {
+                                                //consultando a una api gratuita para obtener la ubicacion
+                                                //await para hacer paso a paso la peticion y no de corrido
+                                                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitud_}&lon=${longitud_}&zoom=10&addressdetails=1`);
+                                                //se lee el json una sola vez                                 
+                                                const datas = await response.json();
 
-                                        //extraer datos del lugar
-                                        const info=datas.address;
+                                                //extraer datos del lugar
+                                                const info = datas.address;
 
-                                        //obtener datos del lugar
-                                        const pais=info.country || '';
-                                        const departamento=info.state || '';
-                                        const ciudad=info.city || info.county || ''; 
-                                        const distrito =info.suburb || info.city_district || info.town || '';
-                                        const lugar = info.road || info.pedestrian || info.amenity || '';
-                                        const referencia = info.neighbourhood || info.residential || '';
+                                                //obtener datos del lugar
+                                                const pais = info.country || '';
+                                                const departamento = info.state || '';
+                                                const ciudad = info.city || info.county || '';
+                                                const distrito = info.suburb || info.city_district || info.town || '';
+                                                const lugar = info.road || info.pedestrian || info.amenity || '';
+                                                const referencia = info.neighbourhood || info.residential || '';
 
-                                        //juntar todo en un arreglo por asi decirlo filtrarlo en un formato de texto omitiendo caracteres vacios ''
-                                        const partes = [pais,departamento,ciudad,distrito, lugar, referencia].filter(texto => texto !== '');
-                                        const direccionFormateada = partes.join(' - ');//se unse todo mediante
-                                        
-                                        
-                                        //insertando datos en el input
-                                        const input_direccion=document.getElementById('direccion');
-                                        input_direccion.value=direccionFormateada;
+                                                //juntar todo en un arreglo por asi decirlo filtrarlo en un formato de texto omitiendo caracteres vacios ''
+                                                const partes = [pais, departamento, ciudad, distrito, lugar, referencia].filter(texto => texto !== '');
+                                                const direccionFormateada = partes.join(' - '); //se unse todo mediante
 
-                                    } catch (error) {
-                                        alert("no se pudo traducir las coordenadas");
-                                        console.error(error);
-                                    }
-                                },
-                                (error) => {
-                                        alert('error inesperado');
-                                    }
+
+                                                //insertando datos en el input
+                                                const input_direccion = document.getElementById('direccion');
+                                                input_direccion.value = direccionFormateada;
+
+                                            } catch (error) {
+                                                alert("no se pudo traducir las coordenadas");
+                                                console.error(error);
+                                            }
+                                        },
+                                        (error) => {
+                                            alert('error inesperado');
+                                        }
                                 )
-                        });
-                    </script>
+                            });
+                        </script>
 
-                </div>
-                <div class="col-span-4 overflow-y-scroll justify-center items-center grid xl:grid-cols-4" >
-                    <textarea name="descripcion"  class="bg-gray-100 rounded-xl xl:p-3 text-wrap border-1 hover:outline-0   col-span-4" placeholder="agrega una breve descripcion" rows="4"></textarea>
+                    </div>
+                    <div class="col-span-4 overflow-y-scroll justify-center items-center grid xl:grid-cols-4">
+                        <textarea name="descripcion" class="bg-gray-100 rounded-xl xl:p-3 text-wrap border-1 hover:outline-0   col-span-4" placeholder="agrega una breve descripcion" rows="4"></textarea>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="flex justify-center items-center xl:my-3">
-            @auth
-                    <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
-            @else
-                    <button type="button" onclick="alert('inicie sesion primero')" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
-            @endauth
-            
-        </div>
-    </form>    
-</main>
-<footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10 ">
+            <div class="flex justify-center items-center xl:my-3">
+                @auth
+                <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+                @else
+                <button type="button" onclick="alert('inicie sesion primero')" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+                @endauth
+
+            </div>
+        </form>
+    </main>
+    <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10 ">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
             <div class="">
 
                 <h2 class=" font-bold xl:text-3xl">EcoCiudad</h2>
-                
+
             </div>
 
             <div>
@@ -333,19 +339,19 @@
             </div>
         </div>
     </footer>
-<script>
-        const ver=document.getElementById('ver_reporte');
-        const crear=document.getElementById('crear_reporte');
-        const div_mostrar=document.getElementById('mostrar_div_reporte');
-        const div_crear=document.getElementById('crear_div_reporte');
+    <script>
+        const ver = document.getElementById('ver_reporte');
+        const crear = document.getElementById('crear_reporte');
+        const div_mostrar = document.getElementById('mostrar_div_reporte');
+        const div_crear = document.getElementById('crear_div_reporte');
 
-        ver.addEventListener('click',()=>{
+        ver.addEventListener('click', () => {
             div_mostrar.classList.remove('hidden');
             div_mostrar.classList.add('block');
             div_crear.classList.remove('block');
             div_crear.classList.add('hidden');
         });
-        crear.addEventListener('click',()=>{
+        crear.addEventListener('click', () => {
             div_crear.classList.remove('hidden');
             div_crear.classList.add('block');
             div_mostrar.classList.remove('block');
