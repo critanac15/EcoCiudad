@@ -100,7 +100,7 @@
                         </select>
                     </div>
                     <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                        <select id="estado" name="estado" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                        <select id="estado" name="estado" class="border border-gray-300 pl-4 pr-12 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
                             <option value="" disabled selected>Seleccione el estado</option>
                             <option value="pendiente">Pendiente</option>
                             <option value="solucionado">Solucionado</option>
@@ -142,7 +142,8 @@
                         <p>{{ $report->descripcion }}</p>
                     </div>
                     <figure class="flex justify-center items-center">
-                        <img src="https://imgs.search.brave.com/zfMtD_YwkW0xG0hyPmu_65H1onSb_Bw48ZQMfY63qbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTEv/NDkwLzgxMS9zbWFs/bC9sZXR0ZXItbi1m/b250LW9yYW5nZS1m/cmFtZS11cHBlcmNh/c2UtZm9yLWNoaWxk/cmVuLXRveS1sZWFy/bmluZy1vbi1zb2xp/ZC1iYWNrZ3JvdW5k/LXBob3RvLkpQRw" alt="Reporte" class="rounded-xl"/>
+                        <img src="https://imgs.search.brave.com/WwGsELT7eu81XjsIU2pgRD-0ZFu60Ooc-1uINrncZ-o/rs:fit:500:0:1:0/g:ce/aHR0cDovL3JldHJv/bWFxdWluaXRhcy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTkvMDgvUDMyODAw/MjYtMTAyNHg1NzYu/anBn"  alt="Reporte" class="rounded-xl"/>
+                        <p>{{$report->id_imagen_}}</p>
                     </figure>
                     
                 </div>
@@ -167,6 +168,7 @@
                     <button type="button"  class=" text-2xl  hover:cursor-pointer">x</button>
                 </div>
             </div>
+            <!--Codigo de javaScript para solicitar al usuario subir una imagen --->
             <script>
                 const vista_previa=document.getElementById('vista_previa');
                 const input_foto=document.getElementById('input_foto');
@@ -174,7 +176,7 @@
 
                 //con una url temporal
                 input_foto.addEventListener('change',(event)=>{
-                    //captura el archivo seleccionado en forma de array
+                    //captura el archivo seleccionado en forma de array para serlo mas manejable
                     const archivo=event.target.files[0];
                     if(archivo){
                         const url_temporal=URL.createObjectURL(archivo);
@@ -205,6 +207,7 @@
             <div class="flex flex-col justify-center xl:gap-y-2">
                 <div class="grid xl:grid-cols-4">
                     <div class="xl:col-span-3 xl:mb-3">
+                        <!-- Verificando si el usuario esta registrado o no--->
                         @if (Route::has('login'))
                             @auth
                                 <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian"/>
@@ -219,6 +222,7 @@
                     <div class="col-span-1 justify-end items-center flex">
                         <button type="button" id="btn_direccion" class=" xl:px-4 xl:py-2 rounded-lg hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 ">Usar mi ubicacion</button>
                     </div>
+                    <!-- Codigo javaScript para la parte de solicitar ubicacion--->
                     <script>
                         const btn_direccion=document.getElementById('btn_direccion');
                         btn_direccion.addEventListener('click',()=>{
@@ -237,9 +241,9 @@
                                     try{
                                         //consultando a una api gratuita para obtener la ubicacion
                                         //await para hacer paso a paso la peticion y no de corrido
-                                        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitud_}&lon=${longitud_}&zoom=10&addressdetails=1`);      
+                                        const respuesta = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitud_}&lon=${longitud_}&zoom=10&addressdetails=1`);      
                                         //se lee el json una sola vez                                 
-                                        const datas=await response.json();
+                                        const datas=await respuesta.json();
 
                                         //extraer datos del lugar
                                         const info=datas.address;
@@ -280,6 +284,8 @@
             </div>
         </div>
         <div class="flex justify-center items-center xl:my-3">
+<!--Verificando si el usuario esta registrado-->
+
             @auth
                     <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
             @else
@@ -289,6 +295,8 @@
         </div>
     </form>    
 </main>
+<!--Parte del footer de la pagina-->
+
 <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10 ">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
             <div class="">
