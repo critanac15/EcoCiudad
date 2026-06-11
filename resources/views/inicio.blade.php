@@ -10,6 +10,7 @@
     <!--Asset ubica la ruta -->
     <link rel="icon" type="image/svg+xml" href="{{asset('logo.svg')}}">
 
+<!--Importando enlaces  para la fuente de letra de google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -30,6 +31,7 @@
             <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('contacto')}}">Contacto</a>
         </nav>
         <nav class="xl:flex xl:gap-2 items-center ">
+<!--Verificando si el usuario se ha registrado-->
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
@@ -56,6 +58,7 @@
         
     </header>
     <main>
+        <!---Parte de la cabecera ( titulo, imagen) -->
         <div class="bg-[#ffffff]  text-[#000000]">
             <div class="xl:grid xl:grid-cols-2  xl:px-40 xl:py-32">
                 <div class=" xl:flex xl:flex-col xl:gap-y-5">
@@ -213,6 +216,7 @@
         </div>
         
     </main>
+<!--Parte del footer de la pagina-->
     <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 xl:px-40 xl:gap-10">
         <div class="xl:flex xl:flex-col xl:gap-y-5">
             <div class="">
