@@ -163,7 +163,7 @@
         <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
             <div class="relative overflow-hidden border-dashed border-2 bg-white border-gray-300 rounded-xl flex justify-center items-center">
                 <input id="input_foto" type="file" name="imagen" accept="image/*" class="hover:scale-105 duration-150 transition-all hover:cursor-pointer xl:py-2 xl:px-1 rounded-xl bg-gray-300 block" >
-                <img id="vista_previa" src="" class="hidden rounded-xl">
+                <img id="vista_previa" src="" class="hidden rounded-xl" alt="Ingrese una imagen">
                 <div id="eliminar_foto" class="hover:cursor-pointer text-red-700 font-bold  absolute xl:top-0 xl:right-0 hidden xl:py-1 xl:px-2 bg-white rounded-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-150 ">
                     <button type="button"  class=" text-2xl  hover:cursor-pointer">x</button>
                 </div>
