@@ -9,10 +9,6 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        https: true,
-        hmr: {
-            protocol: 'wss',
-        },
-    },
+
+    
 });
