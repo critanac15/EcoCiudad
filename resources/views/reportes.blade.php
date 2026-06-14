@@ -141,7 +141,7 @@
             <div class="xl:flex ">
                 <form action="{{route('reportes')}}" method="GET" class="flex xl:gap-4 xl:mb-10">
                     <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                        <select id="distrito" name="distrito" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                        <select id="distrito" name="ubicacion" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
                             <option value="" disabled selected>Seleccione su distrito</option>
                             <option value="arequipa">Arequipa (Cercado)</option>
                             <option value="alto_selva_alegre">Alto Selva Alegre</option>
@@ -165,18 +165,18 @@
                         </select>
                     </div>
 
-                    <input type="text" name="username" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200" />
-                    <input type="date" name="date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
+                    <input type="text" name="id_usuario_" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200" />
+                    <input type="date" name="report_date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
                     <button type="submit" class="bg-blue-500  font-bold xl:px-5 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
                 </form>
             </div>
             <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 gap-9">
 
 
-                @foreach($reporte as $report )
+                @foreach($datosUsuario_reporte as $report )
                 <div class=" xl:p-5 rounded-xl shadow-xl relative">
                     @php
-                    $estado = 'solucionado';
+                    $estado = $report->estado;
 
                     $colorClase = '';
                     if($estado === 'solucionado') {
@@ -189,8 +189,8 @@
                     @endphp
 
                     <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 xl:py-1 rounded-lg">{{$estado}}</span>
-                    <div class="flex gap-4 xl:mb-2">
-                        <h2 class="text-gray-600 text-sm">username</h2>
+                    <div class="flex items-center gap-4 xl:mb-2">
+                        <h2 class="text-gray-600 text-sm "> {{ $report->usuario?->name }}</h2>
                         <div class="text-gray-600 text-sm">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
                     </div>
                     <h3 class="xl:text-2xl">{{ $report->titulo }}</h3>
@@ -199,8 +199,8 @@
                         <p>{{ $report->descripcion }}</p>
                     </div>
                     <figure class="flex justify-center items-center">
-                        <img src="https://imgs.search.brave.com/WwGsELT7eu81XjsIU2pgRD-0ZFu60Ooc-1uINrncZ-o/rs:fit:500:0:1:0/g:ce/aHR0cDovL3JldHJv/bWFxdWluaXRhcy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTkvMDgvUDMyODAw/MjYtMTAyNHg1NzYu/anBn" alt="Reporte" class="rounded-xl" />
-                        <p>{{$report->id_imagen_}}</p>
+                        
+                        <img src="{{ $report->imagen->ruta_imagen }}" alt="ImagenReporte" class="rounded-xl">
                     </figure>
 
                 </div>
