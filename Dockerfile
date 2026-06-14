@@ -39,4 +39,4 @@ RUN npm install
 RUN npm run build
 
 # 9.Copiar el certificado a storage, darle permisos a Apache, correr migraciones y encender web
-CMD cp /etc/secrets/aiven-ca.pem /var/www/html/storage/aiven-ca.pem && chmod 644 /var/www/html/storage/aiven-ca.pem && chown www-data:www-data /var/www/html/storage/aiven-ca.pem && php artisan migrate --force && apache2-foreground
+CMD cp /etc/secrets/aiven-ca.pem /var/www/html/storage/aiven-ca.pem && chmod 644 /var/www/html/storage/aiven-ca.pem && chown www-data:www-data /var/www/html/storage/aiven-ca.pem && php artisan config:clear && php artisan view:clear && php artisan migrate --force && apache2-foreground
