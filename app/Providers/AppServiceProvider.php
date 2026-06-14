@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\URL;  //Para el deploy
 class AppServiceProvider extends ServiceProvider
 {
     /**
