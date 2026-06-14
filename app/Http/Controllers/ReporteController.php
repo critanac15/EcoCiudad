@@ -20,17 +20,21 @@ class ReporteController extends Controller
         $this->reporteService = $reporteService;
     }
 
-    public function index(Request $request){
+    public function index(Request $request)
+    {
 
         //Guardar datos en una variable para las foregein keys
         $datosUsuario_reporte=Reporte::with(['usuario','imagen'])->get();
         // Capturamos solo los parámetros que nos interesan para filtrar
-        $filters = $request->only(['id_usuario->name','fecha']);
-        
+        $filters = $request->only(['nombre','date','estado_']);
+
         // Delegamos la obtención de datos al servicio
         $reporte = $this->reporteService->getAllReports($filters);
 
-        // Retornamos la vista enviando la colección de reportes con compact
-        return view('reportes', compact('reporte','datosUsuario_reporte'));
+        // Cargas las relaciones (eager loading) a la colección ya filtrada
+        $reporte->load(['usuario', 'imagen']);
+
+        // Retornas solo la variable unificada
+        return view('reportes', compact('reporte'));
     }
 }

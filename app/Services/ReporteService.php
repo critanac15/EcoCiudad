@@ -13,15 +13,22 @@ class ReporteService {
         $query = Reporte::query();
 
         // Aplicamos filtros dinámicos: si el usuario envió un nombre, filtramos por 'LIKE'
-        if (!empty($filters['id_usuario->name'])){
-            $query->where('id_usuario->name', 'like', '%' . $filters['id_usuario->name'] . '%');
+        //Uso de whereHas para buscar en la relación 'usuario'
+        if (!empty($filters['nombre'])){
+            $query->whereHas('usuario', function($q) use ($filters) {
+                $q->where('name', 'like', '%' . $filters['nombre'] . '%');
+            });
         }
         
         // Si envió una fecha, filtramos exactamente por ese día
-        if (!empty($filters['fecha'])){
-            $query->whereDate('report_date', $filters['fecha']);
+        if (!empty($filters['date'])){
+            $query->whereDate('report_date', $filters['date']);
         }
 
+        //Para la parte de estados
+        if(!empty($filters['estado_'])){
+            $query->where('estado', 'like', '%' . $filters['estado_'] . '%');
+        }
         // Retornamos los resultados ordenados por fecha de forma descendente
         return $query->orderBy('report_date', 'desc')->get();
     }
