@@ -32,6 +32,11 @@ RUN composer install --no-dev --optimize-autoloader
 # 7. Dar permisos a las carpetas que Laravel necesita modificar
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Ejecutar migraciones automáticamente al iniciar y luego encender Apache
-# Copiar el certificado a storage, darle permisos a Apache, correr migraciones y encender web
+# 8.Instalar Node.js y NPM (necesarios para Vite)
+RUN apt-get update && apt-get install -y nodejs npm
+# Instalar dependencias de JavaScript y compilar los assets de producción
+RUN npm install
+RUN npm run build
+
+# 9.Copiar el certificado a storage, darle permisos a Apache, correr migraciones y encender web
 CMD cp /etc/secrets/aiven-ca.pem /var/www/html/storage/aiven-ca.pem && chmod 644 /var/www/html/storage/aiven-ca.pem && chown www-data:www-data /var/www/html/storage/aiven-ca.pem && php artisan migrate --force && apache2-foreground
