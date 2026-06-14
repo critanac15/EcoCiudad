@@ -37,7 +37,6 @@ RUN apt-get update && apt-get install -y nodejs npm
 # Instalar dependencias de JavaScript y compilar los assets de producción
 RUN npm install
 RUN npm run build
-RUN npm run dev
 
 # 9.Copiar el certificado a storage, darle permisos a Apache, correr migraciones y encender web
 CMD cp /etc/secrets/aiven-ca.pem /var/www/html/storage/aiven-ca.pem && chmod 644 /var/www/html/storage/aiven-ca.pem && chown www-data:www-data /var/www/html/storage/aiven-ca.pem && php artisan migrate --force && apache2-foreground
