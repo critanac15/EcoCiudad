@@ -124,13 +124,13 @@
     <!-- CONTENEDOR DE TARJETAS (GRID) -->
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
 
-    <main class="xl:px-40 xl:py-20   bg-[#ffffff] flex flex-col min-h-screen">
-        <div class="xl:flex xl:gap-5 xl:mb-10 text-white ">
+    <main class="xl:px-40 px-5 xl:py-20 py-5   bg-[#ffffff] flex flex-col min-h-screen">
+        <div class="flex xl:gap-5 xl:mb-10 text-white xl:justify-start justify-around ">
             <div>
-                <button id="ver_reporte" class="bg-violet-700  xl:py-3 xl:px-4  hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>
+                <button id="ver_reporte" class="bg-violet-700  xl:py-3 py-2 xl:px-4 px-2  hover:cursor-pointer xl:rounded-xl rounded-md xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>
             </div>
             <div>
-                <button id="crear_reporte" class="bg-violet-700  xl:py-3 xl:px-4 hover:cursor-pointer rounded-xl xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
+                <button id="crear_reporte" class="bg-violet-700  xl:py-3 py-2 xl:px-4 px-2  hover:cursor-pointer xl:rounded-xl rounded-md xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
             </div>
         </div>
 
@@ -139,9 +139,9 @@
         <!---Creando la estructura para ver reportes-->
         <div class="block" id="mostrar_div_reporte">
             <div class="xl:flex ">
-                <form action="{{route('reportes')}}" method="GET" class="flex xl:gap-4 xl:mb-10">
+                <form action="{{route('reportes')}}" method="GET" class="flex xl:flex-auto flex-wrap xl:gap-4 xl:mb-10 mb-5 mt-5 xl:mt-0">
                     <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                        <select id="distrito" name="ubicacion" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                        <select id="distrito" name="ubicacion" class="border border-gray-300 rounded-xl xl:px-4 xl:py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
                             <option value="" disabled selected>Seleccione su distrito</option>
                             <option value="arequipa">Arequipa (Cercado)</option>
                             <option value="alto_selva_alegre">Alto Selva Alegre</option>
@@ -157,7 +157,7 @@
                         </select>
                     </div>
                     <div class="flex flex-col gap-y-2 w-full max-w-sm">
-                        <select id="estado" name="estado" class="border border-gray-300 pl-4 pr-12 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
+                        <select id="estado" name="estado_" class="border border-gray-300 pl-4 pr-12 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-pointer duration-200">
                             <option value="" disabled selected>Seleccione el estado</option>
                             <option value="pendiente">Pendiente</option>
                             <option value="solucionado">Solucionado</option>
@@ -165,16 +165,16 @@
                         </select>
                     </div>
 
-                    <input type="text" name="id_usuario_" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200" />
-                    <input type="date" name="report_date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
-                    <button type="submit" class="bg-blue-500  font-bold xl:px-5 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
+                    <input type="text" name="nombre" placeholder="Buscar por usuario" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:ring-0  focus:outline-0 hover:cursor-text duration-200" />
+                    <input type="date" name="date" class="border border-gray-300 rounded-xl px-4 py-3 bg-white text-gray-700 hover:border-gray-400 focus:outline-none  cursor-text duration-200 ">
+                    <button type="submit" class="bg-blue-500  font-bold xl:px-5 px-3 hover:cursor-pointer rounded-xl text-white xl:hover:scale-105 transition-all duration-150">Filtrar</button>
                 </form>
             </div>
-            <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 gap-9">
+            <div class="xl:grid xl:grid-cols-3 md:grid-cols-3 xl:gap-9 flex flex-col gap-y-8 ">
 
 
-                @foreach($datosUsuario_reporte as $report )
-                <div class=" xl:p-5 rounded-xl shadow-xl relative">
+                @foreach($reporte as $report )
+                <div class=" xl:p-5 p-3 rounded-xl shadow-xl relative">
                     @php
                     $estado = $report->estado;
 
@@ -183,12 +183,12 @@
                     $colorClase = 'bg-green-400';
                     } elseif($estado === 'pendiente') {
                     $colorClase = 'bg-gray-400';
-                    } elseif($estado === 'en abandono') {
+                    } elseif($estado === 'En abandono') {
                     $colorClase = 'bg-red-500';
                     }
                     @endphp
 
-                    <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 xl:py-1 rounded-lg">{{$estado}}</span>
+                    <span class="{{$colorClase}} absolute -right-3 -top-3 xl:px-3 px-2 xl:py-1 rounded-lg">{{$estado}}</span>
                     <div class="flex items-center gap-4 xl:mb-2">
                         <h2 class="text-gray-600 text-sm "> {{ $report->usuario?->name }}</h2>
                         <div class="text-gray-600 text-sm">{{ date('d-m-Y',strtotime($report->report_date)) }}</div>
