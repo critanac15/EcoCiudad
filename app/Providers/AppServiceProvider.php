@@ -21,20 +21,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-
-        // Forzar HTTPS global en Laravel
-        URL::forceScheme('https');
-
-        // LA SOLUCIÓN PARA VITE: Obligar a Vite a usar HTTPS en producción
-        if (config('app.env') === 'production' || env('ASSET_URL')) {
-            Vite::useScriptTagAttributes([
-                'crossorigin' => 'anonymous'
-            ]);
-            
-            // Forzar a que use la URL segura de Render
-            Vite::macro('useHttps', function () {
-                return true; 
-            });
-        }
+        \Illuminate\Support\Facades\URL::forceScheme('https');
     }
 }
