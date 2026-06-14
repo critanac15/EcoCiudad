@@ -7,6 +7,7 @@ use App\Services\ReportService;
 
 class ReportController extends Controller
 {
+    
     // ./vendor/bin/sail artisan make:controller ReportController
     
     protected $reportService;

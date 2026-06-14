@@ -14,7 +14,8 @@ class ReporteController extends Controller
 
     // Inyectamos el servicio en el constructor. 
     // Esto se conoce como "Inyección de Dependencias".
-    public function __construct(ReporteService $reporteService){
+    public function __construct(ReporteService $reporteService)
+    {
         $this->reporteService = $reporteService;
     }
 
