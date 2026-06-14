@@ -33,4 +33,5 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Ejecutar migraciones automáticamente al iniciar y luego encender Apache
-CMD php artisan migrate --force && apache2-foreground
+# Copiar el certificado a storage, darle permisos a Apache, correr migraciones y encender web
+CMD cp /etc/secrets/aiven-ca.pem /var/www/html/storage/aiven-ca.pem && chmod 644 /var/www/html/storage/aiven-ca.pem && chown www-data:www-data /var/www/html/storage/aiven-ca.pem && php artisan migrate --force && apache2-foreground
