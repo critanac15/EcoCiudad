@@ -12,7 +12,7 @@ class Reporte extends Model
     //una funcion  para cada relacion para la relacion eloquente
     //belomngsTo para = perstence a...
     public function usuario() {
-        return $this->belongsTo(User::class, 'id_usuario');
+        return $this->belongsTo(User::class, 'id_usuario_','id_usuario');
     }
 
     public function autoridad() {
@@ -20,7 +20,7 @@ class Reporte extends Model
     }
 
     public function imagen() {
-        return $this->belongsTo(Imagen::class, 'id_imagen');
+        return $this->belongsTo(Imagen::class, 'id_imagen_','id_imagen');
     }
 
     // ./vendor/bin/sail artisan make:model Reporte -m
