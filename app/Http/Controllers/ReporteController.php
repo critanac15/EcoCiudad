@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ReporteService;
+use App\Models\Reporte;
 
 class ReporteController extends Controller
 {
@@ -20,6 +21,9 @@ class ReporteController extends Controller
     }
 
     public function index(Request $request){
+
+        //Guardar datos en una variable para las foregein keys
+        $datosUsuario_reporte=Reporte::with(['usuario','imagen'])->get();
         // Capturamos solo los parámetros que nos interesan para filtrar
         $filters = $request->only(['id_usuario->name','fecha']);
         
@@ -27,6 +31,6 @@ class ReporteController extends Controller
         $reporte = $this->reporteService->getAllReports($filters);
 
         // Retornamos la vista enviando la colección de reportes con compact
-        return view('reportes', compact('reporte'));
+        return view('reportes', compact('reporte','datosUsuario_reporte'));
     }
 }
