@@ -19,5 +19,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
+        // Fuerza HTTPS directamente para evitar errores de variables de entorno
+        \Illuminate\Support\Facades\URL::forceScheme('https');
     }
 }
