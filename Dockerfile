@@ -31,3 +31,6 @@ RUN composer install --no-dev --optimize-autoloader
 
 # 7. Dar permisos a las carpetas que Laravel necesita modificar
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Ejecutar migraciones automáticamente al iniciar y luego encender Apache
+CMD php artisan migrate --force && apache2-foreground
