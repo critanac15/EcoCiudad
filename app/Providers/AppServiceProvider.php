@@ -20,7 +20,10 @@ class AppServiceProvider extends ServiceProvider
     {
         //
 
-        // Fuerza HTTPS directamente para evitar errores de variables de entorno
         \Illuminate\Support\Facades\URL::forceScheme('https');
+    
+        if ($this->app->environment('production')) {
+            \Illuminate\Support\Facades\URL::forceRootUrl(config('app.url'));
+        }
     }
 }
