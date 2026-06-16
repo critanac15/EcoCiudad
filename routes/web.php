@@ -5,10 +5,12 @@ use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
+
+
 //Rutas para la pagina de inicio
-Route::get('inicio',function(){
+Route::get('/inicio',function(){
     return view('inicio');
 })->name('inicio');
 
