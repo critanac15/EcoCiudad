@@ -91,7 +91,7 @@
                             Registrar
                         </button>
                         <div class="text-center">
-                            <a href="{{ route('login') }}" class="text-sm text-gray-600 hover:text-gray-900 underline">
+                            <a href="{{ route('loginUser') }}" class="text-sm text-gray-600 hover:text-gray-900 underline">
                                 ¿Ya estás registrado? Inicia sesión aquí
                             </a>
                         </div>
