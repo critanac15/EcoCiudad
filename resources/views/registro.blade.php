@@ -41,46 +41,46 @@
                     
                     <div class="flex flex-col gap-y-6">
                         <div>
-                            <fieldset class="flex justify-between items-center gap-3">
+                            <legend class="flex justify-between items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                                 </svg>
                                 <input type="text" name="name" :value="old('name')" required autofocus class="px-3 py-1 outline-0 border-0 focus:ring-0 rounded-xl w-full xl:w-72 h-10" placeholder="Nombre de usuario">
-                            </fieldset>
+                            </legend>
                             <hr class="mt-2">
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
                         <div>
-                            <fieldset class="flex justify-between items-center gap-3">
+                            <legend class="flex justify-between items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" class="size-6">
                                     <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
                                     <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                                 </svg>
                                 <input type="email" name="email" :value="old('email')" required placeholder="ejemplo@gmail.com" class="px-3 py-1 focus:ring-0 outline-0 border-0 rounded-xl w-full xl:w-72 h-10">
-                            </fieldset>
+                            </legend>
                             <hr class="mt-2">
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
                         <div>
-                            <fieldset class="flex justify-between gap-3 items-center">
+                            <legend class="flex justify-between gap-3 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-black">
                                     <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clip-rule="evenodd" />
                                 </svg>
                                 <input type="password" name="password" required class="px-3 py-1 outline-0 rounded-xl focus:ring-0 border-0 w-full xl:w-72 h-10" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" title="Debe tener más de 8 caracteres, incluyendo números, letras mayúsculas y minúsculas" placeholder="Contraseña">
-                            </fieldset>
+                            </legend>
                             <hr class="mt-2">
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
 
                         <div>
-                            <fieldset class="flex justify-between gap-3 items-center">
+                            <legend class="flex justify-between gap-3 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-black">
                                     <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clip-rule="evenodd" />
                                 </svg>
                                 <input type="password" name="password_confirmation" required class="px-3 py-1 outline-0 rounded-xl focus:ring-0 border-0 w-full xl:w-72 h-10" placeholder="Confirmar Contraseña">
-                            </fieldset>
+                            </legend>
                             <hr class="mt-2">
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>
