@@ -94,29 +94,29 @@
                 <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('soporteAyuda')}}">Soporte / ayuda</a>
                 <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('contacto')}}">Contacto</a>
             </nav>
-            <nav class="xl:flex xl:gap-2 items-center xl:relative xl:right-6">
+            <nav class="xl:flex xl:gap-2 items-center">
                 <!--Verificando si el usuario se ha registrado-->
                 @if (Route::has('login'))
-                <nav class="flex items-center justify-start gap-4">
+                
                     @auth
-                    <a
-                        href="{{ url('/dashboard') }}"
-                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                        Dashboard
-                    </a>
+                    <div class="ml-auto">
+                        <a
+                            href="{{ url('/dashboard') }}"
+                            class=" px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-base ">
+                            Dashboard
+                        </a>
+                    </div>
                     @else
+                    <div class="flex items-center justify-start gap-4 xl:right-6 xl:relative ">
 
-                    <a href="{{route('loginUser')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
-
-                    @if (Route::has('registro'))
-
-                    <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse </a>
-                    @endif
+                        <a href="{{route('loginUser')}}" class="bg-[#4d4d4d] xl:px-6 xl:py-2 xl:rounded-sm text-white hover:bg-[#3e3e3e] hover:cursor-pointer duration-150 hover:scale-105">Ingresar</a>
+                        
+                        @if (Route::has('registro'))
+                        <a href="{{route('registro')}}" class="bg-[#ffffff] xl:px-6 xl:py-2 xl:rounded-sm text-black hover:bg-[#ededed] hover:cursor-pointer duration-150 hover:scale-105">Registrarse </a>
+                        @endif
+                    </div>
                     @endauth
-                </nav>
                 @endif
-
-
             </nav>
         </div>
     </header>
