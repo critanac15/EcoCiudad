@@ -99,7 +99,7 @@
                 </form>
             </div>
             
-            <div class="bg-[url('{{ asset('fondo_imagen_login_register.webp') }}')] bg-cover bg-center text-white xl:px-16 xl:py-20 p-8 flex flex-col justify-start min-h-[400px]">
+            <div class="bg-[url('{{ asset('fondo_imagen_login_register.webp') }}')] bg-cover bg-center text-white xl:px-16 xl:py-20 p-8 flex flex-col justify-start min-h-[400px] xl:block hidden">
                 <h2 class="xl:text-4xl text-3xl font-bold mb-4">Bienvenido a EcoCiudad</h2>
                 <p class="text-sm xl:text-base leading-relaxed text-purple-100">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. In harum asperiores inventore distinctio sed odit. Tempora sed sunt sapiente doloribus voluptates voluptas.

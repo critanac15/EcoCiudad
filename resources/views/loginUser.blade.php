@@ -33,7 +33,7 @@
         
         <div class="grid xl:grid-cols-2 overflow-hidden shadow-2xl bg-white rounded-xl min-h-[500px]">
             
-            <div class="bg-[url('{{ asset('fondo_imagen_login_register.webp') }}')] bg-cover bg-center text-white xl:px-16 xl:py-20 p-8 flex flex-col justify-start">
+            <div class="bg-[url('{{ asset('fondo_imagen_login_register.webp') }}')] bg-cover bg-center text-white xl:px-16 xl:py-20 p-8 flex flex-col justify-start xl:block hidden">
                 <div class="xl:px-5 justify-start">
                     <h2 class="xl:text-4xl text-3xl font-bold mb-4">Bienvenido a EcoCiudad</h2>
                     <p class="text-sm xl:text-base leading-relaxed text-purple-100">
