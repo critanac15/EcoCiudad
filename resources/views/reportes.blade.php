@@ -178,12 +178,21 @@
                     $estado = $report->estado;
 
                     $colorClase = '';
-                    if($estado === 'solucionado') {
-                    $colorClase = 'bg-green-400';
-                    } elseif($estado === 'pendiente') {
-                    $colorClase = 'bg-gray-400';
-                    } elseif($estado === 'En abandono') {
-                    $colorClase = 'bg-red-500';
+                    if($estado === 'solucionado')
+                    {
+                        $colorClase = 'bg-green-400';
+                    }else
+                    {
+                        if($estado === 'pendiente')
+                        {
+                            $colorClase = 'bg-gray-400';
+                        }else
+                        {
+                            if($estado === 'En abandono')
+                            {
+                                $colorClase = 'bg-red-500';
+                            }
+                        }   
                     }
                     @endphp
 
