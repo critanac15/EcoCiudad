@@ -35,17 +35,16 @@
 <body class="flex flex-col h-full">
     <header class=" bg-[#000000] text-white xl:py-5 py-2 xl:px-40 px-4">
         <div class="xl:hidden  grid grid-cols-3">
-            <div class="flex justify-start items-center col-span-2 ">
+            <a href="{{ route('inicio') }}" class="flex justify-start items-center col-span-2 ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" size-9">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
                 </svg>
 
                 <h1 class="xl:text-2xl xl:block text-white">EcoCiudad</h1>
-            </div>
+            </a>
             <div class="relative flex justify-end p-1">
                 <div class="relative">
                     <button id="menu-btn" aria-expanded="false" class="flex h-11 w-11 items-center justify-center rounded-xl bg-black text-white shadow-md  active:bg-gray-800 focus:outline-none  transition-colors">
-                        <span class="sr-only">Abrir menú</span>
                         <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -81,24 +80,24 @@
             </div>
 
         </div>
-        <div id="menuXL" class=" hidden col-span-7 xl:grid grid-cols-7">
-            <div class="xl:flex xl:justify-start xl:items-center  ">
+        <div id="menuXL" class=" hidden  xl:grid xl:grid-cols-7">
+            <a href="{{ route('inicio') }}" class="xl:flex xl:justify-start xl:items-center  ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-9 size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
                 </svg>
 
-                <h1 class="xl:text-2xl hidden xl:block">EcoCiudad</h1>
-            </div>
-            <nav class="xl:flex xl:gap-4 xl:col-span-5 col-span-4 justify-center xl:text-lg">
+                <h1 class="xl:text-2xl  xl:block">EcoCiudad</h1>
+            </a>
+            <nav class="xl:flex xl:gap-4 xl:col-span-5  xl:justify-center xl:text-lg">
                 <a class="  xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{ route('inicio') }} ">Inicio</a>
                 <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('reportes')}}">Reportes</a>
                 <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('soporteAyuda')}}">Soporte / ayuda</a>
                 <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('contacto')}}">Contacto</a>
             </nav>
-            <nav class="xl:flex xl:gap-2 items-center ">
+            <nav class="xl:flex xl:gap-2 items-center xl:relative xl:right-6">
                 <!--Verificando si el usuario se ha registrado-->
                 @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
+                <nav class="flex items-center justify-start gap-4">
                     @auth
                     <a
                         href="{{ url('/dashboard') }}"
