@@ -13,7 +13,7 @@ class ReporteController extends Controller
     
     protected $reporteService;
 
-    // Inyectamos el servicio en el constructor. 
+    // Inyectamos el servicio en el constructor.
     // Esto se conoce como "Inyección de Dependencias".
     public function __construct(ReporteService $reporteService)
     {
@@ -24,7 +24,6 @@ class ReporteController extends Controller
     {
 
         //Guardar datos en una variable para las foregein keys
-        $datosUsuario_reporte=Reporte::with(['usuario','imagen'])->get();
         // Capturamos solo los parámetros que nos interesan para filtrar
         $filters = $request->only(['nombre','date','estado_']);
 

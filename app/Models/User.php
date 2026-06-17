@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -35,7 +34,8 @@ class User extends Authenticatable
 
     //funcion para la relacion eloquente
     //has many= relacion de 1 a N
-    public function reportes() {
+    public function reportes() 
+    {
         return $this->hasMany(Reporte::class, 'id_usuario');
     }
 }
