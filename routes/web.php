@@ -4,48 +4,59 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/', function () 
+{
     return view('inicio');
 });
 
-
 //Rutas para la pagina de inicio
-Route::get('/inicio',function(){
+Route::get('/inicio',function()
+{
     return view('inicio');
 })->name('inicio');
 
 //Rutas para la pagina de reportes
-Route::get('/reportes',function(){
+Route::get('/reportes',function()
+{
     return view('reportes');
 })->name('reportes');
-Route::get('/reportes',[ReporteController::class, 'index'])->name('reportes');
+
+Route::get('/reportes',[ ReporteController::class, 'index' ])->name('reportes');
 
 
 
-Route::get('/contacto',function(){
+Route::get('/contacto',function()
+{
     return view('contacto');
 })->name('contacto');
 
 //Rutas para soporte y ayuda
-Route::get('soporteAyuda',function(){
+Route::get('soporteAyuda',function()
+{
     return view('soporteAyuda');
 })->name('soporteAyuda');
 
 //Rutas para login y registro
-Route::get('loginUser',function(){
+Route::get('loginUser',function()
+{
     return view('loginUser');
 })->name('loginUser');
-Route::get('registro',function(){
+
+Route::get('registro',function()
+{
     return view('registro');
 })->name('registro');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::get('/dashboard', function ()
+{
+    return view('dashboard');
+})->middleware( ['auth', 'verified'] )->name('dashboard');
+
+Route::middleware('auth')->group(function ()
+{
+    Route::get('/profile', [ ProfileController::class, 'edit' ])->name('profile.edit');
+    Route::patch('/profile', [ ProfileController::class, 'update' ])->name('profile.update');
+    Route::delete('/profile', [ ProfileController::class, 'destroy' ])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

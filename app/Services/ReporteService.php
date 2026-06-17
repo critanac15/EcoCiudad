@@ -3,20 +3,20 @@ namespace App\Services;
 
 use App\Models\Reporte;
 
-class ReporteService 
+class ReporteService
 {
     /**
      * Obtiene reportes con filtros opcionales.
      * Esta lógica se extrae del controlador para que sea reutilizable y fácil de testear.
      */
-    public function getAllReports( $filters = [] )
+    public function getAllReports($filters = [])
     {
         // Iniciamos una consulta base sobre el modelo Report
         $query = Reporte::query();
 
         // Aplicamos filtros dinámicos: si el usuario envió un nombre, filtramos por 'LIKE'
         //Uso de whereHas para buscar en la relación 'usuario'
-        if ( !empty( $filters['nombre'] ))
+        if (!empty($filters['nombre'] ))
         {
             $query->whereHas('usuario', function( $q ) use ($filters) 
             {
@@ -25,7 +25,7 @@ class ReporteService
         }
         
         // Si envió una fecha, filtramos exactamente por ese día
-        if ( !empty($filters['date']) )
+        if (!empty($filters['date']) )
         {
             $query->whereDate('report_date', $filters['date']);
         }
@@ -44,6 +44,6 @@ class ReporteService
      */
     public function storeReport(array $data)
     {
-        return Reporte::create( $data );
+        return Reporte::create($data);
     }
 }
