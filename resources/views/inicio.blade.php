@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoCiudad</title>
-    <!-- Importando tailwind - el framwork para css-->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!--Asset ubica la ruta -->
     <link rel="icon" type="image/svg+xml" href="{{asset('logo.svg')}}">
 
-    <!--Importando enlaces  para la fuente de letra de google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
-<body class="font-light">
+<body class="font-light overflow-x-hidden">
 
     <header class=" bg-[#000000] text-white xl:py-5 py-2 xl:px-40 px-4">
         <div class="xl:hidden  grid grid-cols-3">
@@ -81,7 +78,6 @@
                 <a class="xl:px-3 xl:py-2 xl:rounded-xl hover:underline xl:hover:underline-offset-4 duration-200 xl:hover:scale-110 hover:outline-[#6b878d] hover:cursor-pointer" href="{{route('contacto')}}">Contacto</a>
             </nav>
             <nav class="xl:flex xl:gap-2 items-center">
-                <!--Verificando si el usuario se ha registrado-->
                 @if (Route::has('login'))
                 
                     @auth
@@ -107,10 +103,9 @@
         </div>
     </header>
     <main>
-<!---Parte de la cabecera ( titulo, imagen) -->
-        <div class="bg-[#ffffff]  text-[#000000]">
-            <div class="xl:grid xl:grid-cols-2  xl:px-40 px-5  xl:py-32 py-3">
-                <div class=" xl:flex xl:flex-col xl:gap-y-5 flex flex-col gap-y-3">
+        <div class="bg-[#ffffff] text-[#000000]">
+            <div class="xl:grid xl:grid-cols-2  xl:px-40 px-5  xl:py-32 py-3 overflow-hidden">
+                <div class="reveal-item opacity-0 translate-y-12 transition-all duration-700 ease-out xl:flex xl:flex-col xl:gap-y-5 flex flex-col gap-y-3">
                     <p class="text-orange-500 font-bold xl:text-xl uppercase">El mejor cambio comienza aqui</p>
                     <h2 style="font-family: 'merriWeather', serif;" class="xl:text-shadow-lg xl:text-8xl text-5xl font-semibold xl:leading-24">Conectando ciudadanos para una ciudad mas limpia</h2>
                     <p class="xl:text-2xl font-normal">Transforma tu compromiso en acción. EcoCiudad es la plataforma que permite reportar problemas de limpieza y abandono urbano en tiempo real. Tu reporte llega directamente a las autoridades municipales, quienes priorizan y ejecutan la limpieza de tu barrio de manera eficiente.</p>
@@ -118,14 +113,14 @@
                         <a class="xl:px-5 xl:py-3 py-2 px-4 text-white font-bold xl:rounded-xl rounded-lg bg-amber-400 duration-200 hover:bg-amber-500 hover:cursor-pointer" href="{{route('reportes')}}">Ir a reportes</a>
                     </div>
                 </div>
-                <figure class="flex items-center xl:justify-end justify-center xl:my-0 my-10 ">
+                <figure class="reveal-item delay-200 opacity-0 translate-y-12 transition-all duration-700 ease-out flex items-center xl:justify-end justify-center xl:my-0 my-10 ">
                     <img src="https://imgs.search.brave.com/D15VLoaoGA8kQnnZLih7xGcoFuTYotAa3mjApZyZGnw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTYv/ODM2LzE5NC9zbWFs/bC90d28tcGVvcGxl/LXBpY2tpbmctdXAt/dHJhc2gtb24tdGhl/LXN0cmVldC1mcmVl/LXBob3RvLmpwZWc" alt="" class="xl:w-[87%] w-full rounded-lg ">
                 </figure>
             </div>
         </div>
-<!--Datos analizados-->
-        <div class="bg-[#ffffff] xl:grid xl:grid-cols-4 xl:gap-28 xl:px-40 px-5 pt-4 pb-12 xl:pb-20 xl:pt-40  ">
-            <div class="col-span-2 xl:flex xl:flex-col xl:gap-y-15 xl:mb-0 mb-3 ">
+
+        <div class="bg-[#ffffff] xl:grid xl:grid-cols-4 xl:gap-28 xl:px-40 px-5 pt-4 pb-12 xl:pb-20 xl:pt-40 overflow-hidden">
+            <div class="reveal-item opacity-0 translate-y-12 transition-all duration-700 ease-out col-span-2 xl:flex xl:flex-col xl:gap-y-15 xl:mb-0 mb-3 ">
                 <h3 style="font-family: 'merriWeather', serif;" class="font-bold font xl:text-6xl text-center xl:pb-10 pb-7 text-3xl">Analisis De Datos</h3>
                 <img src="https://imgs.search.brave.com/_XnlaV2jX7bvDSiQa-VqTDFHaODUP7g6cgzbDUsVeS4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZW5lcy5lbHBhaXMu/Y29tL3Jlc2l6ZXIv/djIvNURSVEFDTjZM/Rkg1N0NQRjNRM1hK/RFhNRlkuanBnP2F1/dGg9ZmI4MmU4ZGFm/ODUzNzFkNTQyYzUw/MDYxZmU0NjU4MjM3/YzkwMmU1ZjcwMjVk/OWQwNTY1NjkzMWVi/MTE0YTYxNiZ3aWR0/aD00MTQmaGVpZ2h0/PTMxMSZzbWFydD10/cnVl" alt="" class="h-32   w-[50%] rounded-2xl xl:hidden float-right ml-2 hidden">
                 <p class="xl:text-2xl xl:font-extralight font-normal text-justify xl:block hidden">Nuestra plataforma procesa miles de datos geo-localizados en Arequipa para transformar la gestión pública. A través de este panel, las autoridades visualizan puntos críticos de abandono y priorizan la recuperación de espacios, garantizando una ciudad más limpia, segura y conectada para todos los ciudadanos.</p>
@@ -135,7 +130,7 @@
             </div>
             <div class="col-span-2">
                 <div class="xl:grid xl:grid-cols-2 xl:gap-10 grid grid-cols-2 gap-4 ">
-                    <div class="text-center bg-[#ffffff] xl:px-10 px-2 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
+                    <div class="reveal-item delay-100 opacity-0 translate-y-12 transition-all duration-700 ease-out text-center bg-[#ffffff] xl:px-10 px-2 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
                         <div>
                             <span class="bg-gray-100 px-3 py-1 xl:px-4 xl:py-3 rounded-br-2xl rounded-tl-2xl xl:text-3xl text-2xl font-semibold">5,702</span>
                         </div>
@@ -144,7 +139,7 @@
                             <p class="xl:text-xl text-sm font-light">usuarios verificados en la app</p>
                         </div>
                     </div>
-                    <div class="text-center bg-[#ffffff] xl:px-10 px-3 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
+                    <div class="reveal-item delay-200 opacity-0 translate-y-12 transition-all duration-700 ease-out text-center bg-[#ffffff] xl:px-10 px-3 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
                         <div>
                             <span class="bg-gray-100 px-3 py-1 xl:px-4 xl:py-3 rounded-br-2xl rounded-tl-2xl xl:text-3xl text-2xl font-semibold">153</span>
                         </div>
@@ -153,7 +148,7 @@
                             <p class="xl:text-xl text-sm font-light">reportes realizados por los usuarios</p>
                         </div>
                     </div>
-                    <div class="text-center bg-[#ffffff] xl:px-10 px-3 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
+                    <div class="reveal-item delay-300 opacity-0 translate-y-12 transition-all duration-700 ease-out text-center bg-[#ffffff] xl:px-10 px-3 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
                         <div>
                             <span class="bg-gray-100 px-3 py-1 xl:px-4 xl:py-3 rounded-br-2xl rounded-tl-2xl xl:text-3xl text-2xl font-semibold">71</span>
                         </div>
@@ -162,7 +157,7 @@
                             <p class="xl:text-xl text-sm font-light">reportes atendidos por la municipalidad</p>
                         </div>
                     </div>
-                    <div class="text-center bg-[#ffffff] xl:px-10 px-3 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
+                    <div class="reveal-item delay-[400ms] opacity-0 translate-y-12 transition-all duration-700 ease-out text-center bg-[#ffffff] xl:px-10 px-3 xl:py-12 py-5 xl:rounded-3xl rounded-2xl  justify-center flex flex-col xl:gap-y-2 gap-y-3  shadow-2xl xl:shadow-black/8 shadow-black/1">
                         <div>
                             <span class="bg-gray-100 px-3 py-1 xl:px-4 xl:py-3 rounded-br-2xl rounded-tl-2xl xl:text-3xl text-2xl font-semibold">29</span>
                         </div>
@@ -172,21 +167,21 @@
                         </div>
                     </div>
 
-                    <div class="xl:text-center text-justify bg-[#ffffff] xl:px-10 px-6 xl:py-12 py-6 xl:rounded-3xl rounded-2xl xl:flex xl:flex-col col-span-2 xl:gap-y-2 shadow-2xl xl:shadow-black/8 shadow-black/1">
+                    <div class="reveal-item delay-[500ms] opacity-0 translate-y-12 transition-all duration-700 ease-out xl:text-center text-justify bg-[#ffffff] xl:px-10 px-6 xl:py-12 py-6 xl:rounded-3xl rounded-2xl xl:flex xl:flex-col col-span-2 xl:gap-y-2 shadow-2xl xl:shadow-black/8 shadow-black/1">
                         <p class="font-bold xl:text-xl text-base">Cada año reducimos el riesgo sanitario en un 40% mediante la eliminación de focos infecciosos.</p>
                         <p class="xl:text-sm text-sm">Gracias a los reportes en tiempo real, logramos intervenir antes de que la acumulación de residuos afecte la salud de las familias arequipeñas en zonas periféricas.</p>
                     </div>
                 </div>
             </div>
         </div>
-<!--Beneficios de una ciudad limpia/ del sistema EcoCiudad-->
-        <div class="bg-[#000000] text-white xl:py-28 py-10 xl:px-40 px-5">
-            <div class="flex justify-center items-center">
+
+        <div class="bg-[#000000] text-white xl:py-28 py-10 xl:px-40 px-5 overflow-hidden">
+            <div class="reveal-item opacity-0 translate-y-12 transition-all duration-700 ease-out flex justify-center items-center">
                 <h2 style="font-family: 'merriWeather', serif;" class="font-bold font xl:text-6xl text-center xl:pb-10 pb-10  text-3xl">Beneficios de EcoCiudad</h2>
             </div>
 
             <div class="xl:grid xl:grid-cols-7  xl:py-20 xl:gap-5 ">
-                <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15 grid grid-cols-2 gap-4">
+                <div class="reveal-item delay-100 opacity-0 translate-y-12 transition-all duration-700 ease-out xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15 grid grid-cols-2 gap-4">
                     <div class="xl:flex xl:flex-col xl:gap-y-3 items-start">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-14 size-10 float-right xl:float-none">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
@@ -206,10 +201,10 @@
                         </div>
                     </div>
                 </div>
-                <figure class="xl:col-span-3 flex justify-center xl:my-0 my-10">
+                <figure class="reveal-item delay-300 opacity-0 translate-y-12 transition-all duration-700 ease-out xl:col-span-3 flex justify-center xl:my-0 my-10">
                     <img src="https://imgs.search.brave.com/Ym0WpWz2PZAj0edme5oovq7i8hKx7XaYptZr01GxgP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmluY2FyYWlsLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9CbG9nLTgx/XzEuanBn" alt="" class="rounded-2xl xl:w-[80%] w-full h-60 xl:h-[90%]">
                 </figure>
-                <div class="xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15 grid grid-cols-2 gap-4">
+                <div class="reveal-item delay-[500ms] opacity-0 translate-y-12 transition-all duration-700 ease-out xl:col-span-2 xl:flex xl:flex-col xl:gap-y-15 grid grid-cols-2 gap-4">
                     <div class="xl:flex xl:flex-col xl:gap-y-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-14 size-10 float-right xl:float-none">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -232,41 +227,58 @@
                 </div>
             </div>
         </div>
-<!--Pasos / Instrucciones-->
-        <div class="bg-[#ffffff] xl:px-40 px-5 xl:py-32 py-10 xl:grid xl:grid-cols-2 xl:gap-30">
-            <div >
+
+        <div class="bg-[#ffffff] xl:px-40 px-5 xl:py-32 py-10 xl:grid xl:grid-cols-2 xl:gap-30 overflow-hidden">
+            <div class="reveal-item opacity-0 translate-y-12 transition-all duration-700 ease-out">
                 <p class="text-gray-500 xl:text-2xl xl:pb-5 uppercase">Facil y rapido</p>
                 <h2 style="font-family: 'merriWeather', serif;" class="xl:text-6xl text-3xl font-bold xl:text-start text-start xl:pb-15 pb-6 xl:leading-19">¿Como realizar un reporte?</h2>
                 <div class="flex flex-col xl:gap-y-8 gap-y-4">
                     <div>
-                        <h2 class="font-bold xl:text-3xl text-xl text-gray-600">Toma una foto del lugar</h2>
-                        <p class="xl:text-xl">Toma una fotografía del lugar en estado de abandono, acumulación de residuos o infraestructura dañada. Asegúrate de que el problema sea visible.</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-12 size-8 xl:mt-5 xl:mr-3 float-left m-1 -mt-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+                            </svg>
+                        <div>
+                            <h2 class="font-bold xl:text-3xl text-xl text-gray-600">Toma una foto del lugar</h2>
+                            <p class="xl:text-xl text-justify">Toma una fotografía del lugar en estado de abandono, acumulación de residuos o infraestructura dañada. Asegúrate de que el problema sea visible.</p>
+                        </div>
                     </div>
                     <div>
-                        <h2 class="font-bold xl:text-3xl text-xl text-gray-600">Agrega una breve descripción</h2>
-                        <p class="xl:text-xl">Carga la foto en nuestra plataforma. Añade una breve descripción del lugar; el sistema registrará la fecha y ubicación de forma automática.</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-12 size-8 xl:mt-5 xl:mr-3 float-left m-1 -mt-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                        </svg>
+                        <div>
+                            <h2 class="font-bold xl:text-3xl text-xl text-gray-600">Agrega una breve descripción</h2>
+                            <p class="xl:text-xl">Carga la foto en nuestra plataforma. Añade una breve descripción del lugar; el sistema registrará la fecha y ubicación de forma automática.</p>
+                        </div>
                     </div>
                     <div>
-                        <h2 class="font-bold xl:text-3xl text-xl text-gray-600">Espera a que tu reporte sea solucionado por la autoridad</h2>
-                        <p class="xl:text-xl">Las autoridades recibirán tu reporte, le asignarán una prioridad y verás el cambio cuando el camión de basura o equipo de limpieza atienda el lugar.</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="xl:size-12 size-8 xl:mt-5 xl:mr-3 float-left m-1 -mt-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                        </svg>
+                        <div>
+
+                            <h2 class="font-bold xl:text-3xl text-xl text-gray-600">Espera a que tu reporte sea solucionado</h2>
+                            <p class="xl:text-xl">Las autoridades recibirán tu reporte, le asignarán una prioridad y verás el cambio cuando el camión de basura o equipo de limpieza atienda el lugar.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="xl:flex xl:items-center xl:justify-end justify-center xl:mt-0 mt-5">
+            <div class="reveal-item delay-300 opacity-0 translate-y-12 transition-all duration-700 ease-out xl:flex  hidden xl:items-center xl:justify-end justify-center xl:mt-0 mt-5">
                 <figure class="">
                     <img src="https://imgs.search.brave.com/Cde0GDd9oRlWU9UV3bWcmmQJG3XmE7LXqW9Yo2YKNJ4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE2/NTAyNDczMi9waG90/by9idXNpbmVzc3dv/bWFuLWFuYWx5emlu/Zy1maW5hbmNpYWwt/ZGF0YS1vbi1kaWdp/dGFsLXRhYmxldC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/bE5ZblB6NU9HTE1Y/c2Qyel9pTTk2Mnk5/U0RsR19NcW8xdUtw/WkY2SzctTT0" alt="" class="rounded-lg xl:w-auto w-[50%]">
                 </figure>
             </div>
 
         </div>
-        <!--Lo que dicen lass personas de nosotros-->
-        <div class="bg-white xl:px-40 px-5 xl:pb-40 pb-10 pt-5 xl:pt-14 xl:grid xl:grid-cols-3">
-            <div class="">
+
+        <div class="bg-white xl:px-40 px-5 xl:pb-40 pb-10 pt-5 xl:pt-14 xl:grid xl:grid-cols-3 overflow-hidden">
+            <div class="reveal-item opacity-0 translate-y-12 transition-all duration-700 ease-out">
                 <p class="text-gray-500 xl:text-2xl xl:pb-5 uppercase">Testimonios</p>
                 <h2 style="font-family: 'merriWeather', serif;" class="xl:text-6xl text-3xl font-bold xl:text-start text-start xl:pb-15 pb-6 xl:leading-19">Lo que dicen las personas de Nosotros</h2>
             </div>
-            <div class="xl:col-span-2 justify-center flex">
+            <div class="reveal-item delay-300 opacity-0 translate-y-12 transition-all duration-700 ease-out xl:col-span-2 justify-center flex">
                 <figure class="">
                     <img src="https://imgs.search.brave.com/BWG2UUGHrwCPOxfphRqjWWrk-Pl6AUxjAueLoMPkYuQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3JlYXRlLnZpc3Rh/LmNvbS9hcGkvbWVk/aWEvc21hbGwvMTky/NjQxMjc0L3N0b2Nr/LXBob3RvLXdvcmQt/d3JpdGluZy10ZXh0/LWNsaWVudC10ZXN0/aW1vbmlhbHMtYnVz/aW5lc3MtY29uY2Vw/dC1mb3ItY3VzdG9t/ZXItcGVyc29uYWwt/ZXhwZXJpZW5jZXMt/cmV2aWV3cy1vcGlu/aW9ucy1mZWVkYmFj/ay13cml0dGVu" alt="" class="rounded-lg">
                 </figure>
@@ -276,48 +288,90 @@
 
     </main>
 <!--Parte del footer de la pagina-->
-    <footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 py-5 xl:px-40 px-5 xl:gap-10">
-        <div class="xl:flex xl:mb-0 mb-2 xl:flex-col xl:gap-y-5">
-            <div class="xl:text-start text-center">
-                <h2 class=" font-bold xl:text-3xl text-xl">EcoCiudad</h2>
-                <h5 class="xl:text-lg text-xs xl:block hidden">Nuestras redes sociales</h5>
-            </div>
 
-            <div class="xl:my-0 my-5">
-                <div class="flex xl:justify-start justify-center xl:gap-5 gap-5 xl:mt-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24" class="bg-white size-8  xl:rounded-lg rounded-md">
-                        <path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24" class="bg-white xl:rounded-lg rounded-md size-8">
-                        <path d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24" class="bg-white  xl:rounded-lg rounded-md size-8">
-                        <path d="M19.077,4.928C17.191,3.041,14.683,2.001,12.011,2c-5.506,0-9.987,4.479-9.989,9.985 c-0.001,1.76,0.459,3.478,1.333,4.992L2,22l5.233-1.237c1.459,0.796,3.101,1.215,4.773,1.216h0.004 c5.505,0,9.986-4.48,9.989-9.985C22.001,9.325,20.963,6.816,19.077,4.928z M16.898,15.554c-0.208,0.583-1.227,1.145-1.685,1.186 c-0.458,0.042-0.887,0.207-2.995-0.624c-2.537-1-4.139-3.601-4.263-3.767c-0.125-0.167-1.019-1.353-1.019-2.581 S7.581,7.936,7.81,7.687c0.229-0.25,0.499-0.312,0.666-0.312c0.166,0,0.333,0,0.478,0.006c0.178,0.007,0.375,0.016,0.562,0.431 c0.222,0.494,0.707,1.728,0.769,1.853s0.104,0.271,0.021,0.437s-0.125,0.27-0.249,0.416c-0.125,0.146-0.262,0.325-0.374,0.437 c-0.125,0.124-0.255,0.26-0.11,0.509c0.146,0.25,0.646,1.067,1.388,1.728c0.954,0.85,1.757,1.113,2.007,1.239 c0.25,0.125,0.395,0.104,0.541-0.063c0.146-0.166,0.624-0.728,0.79-0.978s0.333-0.208,0.562-0.125s1.456,0.687,1.705,0.812 c0.25,0.125,0.416,0.187,0.478,0.291C17.106,14.471,17.106,14.971,16.898,15.554z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="bg-white size-8 rounded-md xl:rounded-lg">
-                        <path d="M16,2c-7.732,0-14,6.268-14,14s6.268,14,14,14,14-6.268,14-14S23.732,2,16,2Zm6.489,9.521c-.211,2.214-1.122,7.586-1.586,10.065-.196,1.049-.583,1.401-.957,1.435-.813,.075-1.43-.537-2.218-1.053-1.232-.808-1.928-1.311-3.124-2.099-1.382-.911-.486-1.412,.302-2.23,.206-.214,3.788-3.472,3.858-3.768,.009-.037,.017-.175-.065-.248-.082-.073-.203-.048-.29-.028-.124,.028-2.092,1.329-5.905,3.903-.559,.384-1.065,.571-1.518,.561-.5-.011-1.461-.283-2.176-.515-.877-.285-1.574-.436-1.513-.92,.032-.252,.379-.51,1.042-.773,4.081-1.778,6.803-2.95,8.164-3.517,3.888-1.617,4.696-1.898,5.222-1.907,.116-.002,.375,.027,.543,.163,.142,.115,.181,.27,.199,.379,.019,.109,.042,.357,.023,.551Z" fill-rule="evenodd"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="col-span-2 xl:flex xl:items-center">
-            <div>
-                <h4 class="font-bold xl:text-xl">Acerca de Nosotros</h4>
-                <p class="xl:text-lg text-xs xl:text-start text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, tempora? Exercitationem sapiente perspiciatis cum suscipit, autem dolorum ipsam natus omnis?</p>
-            </div>
+<footer class="bg-black xl:grid xl:grid-cols-4 text-white xl:py-10 py-5 xl:px-40 px-5 xl:gap-10">
 
-        </div>
-        <div class="xl:flex flex justify-around gap-6 xl:flex-col xl:gap-y-5 xl:mt-0 mt-3">
-            <div>
-                <h5 class="font-bold xl:text-lg text-xs">Telefono:</h5>
-                <p class="xl:text-lg text-xs">+51 987654321</p>
-            </div>
-            <div class="">
-                <h5 class="font-bold xl:text-lg text-xs">Email:</h5>
-                <p class="xl:text-lg text-xs">ecociudad@gmail.com</p>
-            </div>
-        </div>
-    </footer>
+<div class="xl:flex xl:mb-0 mb-2 xl:flex-col xl:gap-y-5">
+
+<div class="xl:text-start text-center">
+
+<h2 class=" font-bold xl:text-3xl text-xl">EcoCiudad</h2>
+
+<h5 class="xl:text-lg text-xs xl:block hidden">Nuestras redes sociales</h5>
+
+</div>
+
+
+
+<div class="xl:my-0 my-5">
+
+<div class="flex xl:justify-start justify-center xl:gap-5 gap-5 xl:mt-3">
+
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24" class="bg-white size-8 xl:rounded-lg rounded-md">
+
+<path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z"></path>
+
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24" class="bg-white xl:rounded-lg rounded-md size-8">
+
+<path d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z"></path>
+
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24" class="bg-white xl:rounded-lg rounded-md size-8">
+
+<path d="M19.077,4.928C17.191,3.041,14.683,2.001,12.011,2c-5.506,0-9.987,4.479-9.989,9.985 c-0.001,1.76,0.459,3.478,1.333,4.992L2,22l5.233-1.237c1.459,0.796,3.101,1.215,4.773,1.216h0.004 c5.505,0,9.986-4.48,9.989-9.985C22.001,9.325,20.963,6.816,19.077,4.928z M16.898,15.554c-0.208,0.583-1.227,1.145-1.685,1.186 c-0.458,0.042-0.887,0.207-2.995-0.624c-2.537-1-4.139-3.601-4.263-3.767c-0.125-0.167-1.019-1.353-1.019-2.581 S7.581,7.936,7.81,7.687c0.229-0.25,0.499-0.312,0.666-0.312c0.166,0,0.333,0,0.478,0.006c0.178,0.007,0.375,0.016,0.562,0.431 c0.222,0.494,0.707,1.728,0.769,1.853s0.104,0.271,0.021,0.437s-0.125,0.27-0.249,0.416c-0.125,0.146-0.262,0.325-0.374,0.437 c-0.125,0.124-0.255,0.26-0.11,0.509c0.146,0.25,0.646,1.067,1.388,1.728c0.954,0.85,1.757,1.113,2.007,1.239 c0.25,0.125,0.395,0.104,0.541-0.063c0.146-0.166,0.624-0.728,0.79-0.978s0.333-0.208,0.562-0.125s1.456,0.687,1.705,0.812 c0.25,0.125,0.416,0.187,0.478,0.291C17.106,14.471,17.106,14.971,16.898,15.554z"></path>
+
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="bg-white size-8 rounded-md xl:rounded-lg">
+
+<path d="M16,2c-7.732,0-14,6.268-14,14s6.268,14,14,14,14-6.268,14-14S23.732,2,16,2Zm6.489,9.521c-.211,2.214-1.122,7.586-1.586,10.065-.196,1.049-.583,1.401-.957,1.435-.813,.075-1.43-.537-2.218-1.053-1.232-.808-1.928-1.311-3.124-2.099-1.382-.911-.486-1.412,.302-2.23,.206-.214,3.788-3.472,3.858-3.768,.009-.037,.017-.175-.065-.248-.082-.073-.203-.048-.29-.028-.124,.028-2.092,1.329-5.905,3.903-.559,.384-1.065,.571-1.518,.561-.5-.011-1.461-.283-2.176-.515-.877-.285-1.574-.436-1.513-.92,.032-.252,.379-.51,1.042-.773,4.081-1.778,6.803-2.95,8.164-3.517,3.888-1.617,4.696-1.898,5.222-1.907,.116-.002,.375,.027,.543,.163,.142,.115,.181,.27,.199,.379,.019,.109,.042,.357,.023,.551Z" fill-rule="evenodd"></path>
+
+</svg>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-span-2 xl:flex xl:items-center">
+
+<div>
+
+<h4 class="font-bold xl:text-xl">Acerca de Nosotros</h4>
+
+<p class="xl:text-lg text-xs xl:text-start text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, tempora? Exercitationem sapiente perspiciatis cum suscipit, autem dolorum ipsam natus omnis?</p>
+
+</div>
+
+
+
+</div>
+
+<div class="xl:flex flex justify-around gap-6 xl:flex-col xl:gap-y-5 xl:mt-0 mt-3">
+
+<div>
+
+<h5 class="font-bold xl:text-lg text-xs">Telefono:</h5>
+
+<p class="xl:text-lg text-xs">+51 987654321</p>
+
+</div>
+
+<div class="">
+
+<h5 class="font-bold xl:text-lg text-xs">Email:</h5>
+
+<p class="xl:text-lg text-xs">ecociudad@gmail.com</p>
+
+</div>
+
+</div>
+
+</footer>
     <script>
         //JavaScript para el menu hamburgeusa
         document.addEventListener('DOMContentLoaded', () => {
@@ -351,6 +405,35 @@
                     toggleMenu();
                     menuBtn.focus(); // Retorna el foco al botón por accesibilidad
                 }
+            });
+
+            // ==========================================
+            // API IntersectionObserver para Animaciones Scroll
+            // ==========================================
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px', 
+                threshold: 0.15 
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const hiddenClasses = ['opacity-0', 'translate-y-12'];
+                    const visibleClasses = ['opacity-100', 'translate-y-0'];
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove(...hiddenClasses);
+                        entry.target.classList.add(...visibleClasses);
+                    } else {
+                        entry.target.classList.remove(...visibleClasses);
+                        entry.target.classList.add(...hiddenClasses);
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.reveal-item');
+            animatedElements.forEach((el) => {
+                scrollObserver.observe(el);
             });
         });
     </script>
