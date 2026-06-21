@@ -2,6 +2,8 @@
 namespace App\Services;
 
 use App\Models\Reporte;
+use App\Models\Imagen;
+use Illuminate\Support\Facades\DB;
 
 class ReporteService
 {
@@ -42,8 +44,29 @@ class ReporteService
     /**
      * Crea un nuevo reporte en la base de datos.
      */
-    public function storeReport(array $data)
+    public function storeReport(array $data, string $imageUrl)
     {
-        return Reporte::create($data);
+        // se encapsula ambas operaciones en una transacción con la sintaxis de laravel
+        return DB::transaction(function () use ($data, $imageUrl) {
+            
+            // se crea el registro físico de la imagen primero
+            $imagen = Imagen::create([
+                'ruta_imagen' => $imageUrl
+            ]);
+
+            //se crea el reporte asignando las IDs correspondientes
+            return Reporte::create([
+                'titulo'      => $data['titulo'],
+                'descripcion' => $data['descripcion'] ?? '',
+                'estado'      => $data['estado_'] ?? 'pendiente',
+                'report_date' => now(),
+                'fecha'       => now(),
+                'ubicacion'   => $data['ubicacion'] ?? 'No especificada',
+                'id_usuario_' => $data['user_id'],
+                'id_imagen_'  => $imagen->id_imagen, // Llave foránea vinculada
+            ]);
+        });
     }
+        
+    
 }

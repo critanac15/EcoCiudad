@@ -30,5 +30,5 @@ class Reporte extends Model
     // "-m" de migrate para la base de datos
     // Definimos los campos que se pueden llenar masivamente.
     // Esto es una medida de seguridad de Laravel para evitar inyecciones de datos no deseados.
-    protected $fillable = ['id_usuario','id_imagen','fecha','ubicacion','estado','titulo','descripcion'];
+    protected $fillable = ['id_usuario_','id_imagen_','fecha','ubicacion','estado','titulo','descripcion','report_date'];
 }

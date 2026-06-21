@@ -133,7 +133,28 @@
             </div>
         </div>
 
+        <!-- Condicionales para mostrar mensajes si hubo o no error al crear reportes -->
+        @if(session('exitoso'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <span class="block sm:inline">{{ session('success') }}</span>
+            </div>
+        @endif
 
+        @if(session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <span class="block sm:inline">{{ session('error') }}</span>
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>- {{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <!---Creando la estructura para ver reportes-->
         <div class="block" id="mostrar_div_reporte">
@@ -223,7 +244,8 @@
         <!------------------------------------------>
 
         <!---Creando la estructura para poder crear reportes-->
-        <form class="hidden" id="crear_div_reporte" method="post">
+        <form class="hidden" id="crear_div_reporte" method="post" action="{{ route('reportes.store') }}" enctype="multipart/form-data">
+            @csrf
 
             <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
                 <div class="relative overflow-hidden border-dashed border-2 bg-white border-gray-300 rounded-xl flex justify-center items-center">
@@ -281,8 +303,11 @@
                             @endauth
                             @endif
                         </div>
+                        <div class="col-span-3 justify-center xl:gap-5 mb-2">
+                            <input type="text" name="titulo" placeholder="Título del reporte" required class="bg-gray-100 focus:ring-0 xl:rounded-lg xl:pl-2 border-1 xl:py-2 w-full hover:outline-0" />
+                        </div>
                         <div class="col-span-3 justify-center xl:gap-5">
-                            <input type="text" id="direccion" name="direcion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0    xl:rounded-lg xl:pl-22 border-1 xl:py-2 w-full hover:outline-0" />
+                            <input type="text" id="direccion" name="ubicacion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0 xl:rounded-lg xl:pl-2 border-1 xl:py-2 w-full hover:outline-0" />
                         </div>
                         <div class="col-span-1 justify-end items-center flex">
                             <button type="button" id="btn_direccion" class=" xl:px-4 xl:py-2 rounded-lg hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 ">Usar mi ubicacion</button>

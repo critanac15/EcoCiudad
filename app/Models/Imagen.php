@@ -8,6 +8,7 @@ class Imagen extends Model
 {
     //declaracion de una variable asignandole el ID de la tabla
     protected $primaryKey = 'id_imagen';
+    protected $fillable = ['ruta_imagen'];
 
     public function reporte() 
     {

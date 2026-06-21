@@ -23,6 +23,10 @@ Route::get('/reportes',function()
 
 Route::get('/reportes',[ ReporteController::class, 'index' ])->name('reportes');
 
+// Se agregó la ruta POST para '/reportes' apuntando al método 'store' del controlador.
+// Sin esta ruta, el formulario no tendría a dónde enviar los datos de los nuevos reportes.
+Route::post('/reportes',[ ReporteController::class, 'store' ])->name('reportes.store');
+
 
 
 Route::get('/contacto',function()
