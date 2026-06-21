@@ -60,6 +60,18 @@ return [
             'report' => false,
         ],
 
+        
+        // Este disco es necesario para que la librería cloudinary-laravel v3+ funcione.
+        // Utiliza la variable de entorno CLOUDINARY_URL que debe estar en el archivo .env
+        'cloudinary' => [
+            'driver' => 'cloudinary',
+            'url' => env('CLOUDINARY_URL'),
+            'cloud' => env('CLOUDINARY_CLOUD_NAME', ''),
+            'key' => env('CLOUDINARY_API_KEY', ''),
+            'secret' => env('CLOUDINARY_API_SECRET', ''),
+            'secure' => true,
+        ],
+
     ],
 
     /*
