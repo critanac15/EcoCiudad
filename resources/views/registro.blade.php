@@ -45,7 +45,10 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                                 </svg>
-                                <input type="text" name="name" :value="old('name')" required autofocus class="px-3 py-1 outline-0 border-0 focus:ring-0 rounded-xl w-full xl:w-72 h-10" placeholder="Nombre de usuario">
+                                
+                                <!-- Se cambió el parametro de value="old('name')" por value="{{ old('name') }}" para prevenir errores de validacion -->
+                                
+                                <input type="text" name="name" value="{{ old('name') }}" required autofocus class="px-3 py-1 outline-0 border-0 focus:ring-0 rounded-xl w-full xl:w-72 h-10" placeholder="Nombre de usuario">
                             </legend>
                             <hr class="mt-2">
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -57,7 +60,8 @@
                                     <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
                                     <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                                 </svg>
-                                <input type="email" name="email" :value="old('email')" required placeholder="ejemplo@gmail.com" class="px-3 py-1 focus:ring-0 outline-0 border-0 rounded-xl w-full xl:w-72 h-10">
+                                <!-- Se cambió el parametro de value="old('email')" por value="{{ old('email') }}" para prevenir errores de validacion -->
+                                <input type="email" name="email" value="{{ old('email') }}" required placeholder="ejemplo@gmail.com" class="px-3 py-1 focus:ring-0 outline-0 border-0 rounded-xl w-full xl:w-72 h-10">
                             </legend>
                             <hr class="mt-2">
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
