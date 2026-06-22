@@ -53,15 +53,62 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
+            <div class="px-4 py-2 text-center items-center">
+                <div class="font-medium text-lg text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-xs text-gray-500">{{ Auth::user()->email }}</div>
+            </div>
             <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <div class="-me-1 flex items-center sm:hidden">
+                
+                <button id="menu-btn" aria-expanded="false" class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-black shadow-md active:bg-gray-50 focus:outline-none transition-colors">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
+                <div id="menu-panel" class="hidden absolute right-3 top-14 w-48 origin-top-right rounded-xl bg-white py-2 shadow-lg ring-1 ring-black/5 focus:outline-none z-50">
+                    <a href="{{ route('inicio') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">Inicio</a>
+                    <a href="{{ route('reportes') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">Reportes</a>
+                    <a href="{{ route('soporteAyuda') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">Soporte / ayuda</a>
+                    <a href="{{ route('contacto') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">Contacto</a>
+
+                    <div class="my-1 border-t-2 border-gray-100"></div>
+
+                    @if (Route::has('login'))
+                    <nav class="flex flex-col">
+                        @auth
+                        <!-- User Info -->
+                        
+                        <div class="my-1 border-t border-gray-100"></div>
+
+                        <!-- Dashboard Link -->
+                        <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm {{ request()->routeIs('dashboard') ? 'text-blue-600 bg-gray-50 font-medium' : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600' }} transition-colors">
+                            {{ __('Dashboard') }}
+                        </a>
+
+                        <!-- Profile Link -->
+                         
+                        <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                            {{ __('Profile') }}
+                        </a>
+
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); this.closest('form').submit();"
+                                    class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                                {{ __('Log Out') }}
+                            </a>
+                        </form>
+                        @else
+                        <a href="{{route('loginUser')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">Ingresar</a>
+                        @if (Route::has('registro'))
+                        <a href="{{route('registro')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors">Registrarse</a>
+                        @endif
+                        @endauth
+                    </nav>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
@@ -100,3 +147,39 @@
         </div>
     </div>
 </nav>
+ <script>
+    //JavaScript para el menu hamburgeusa
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-btn');
+        const menuPanel = document.getElementById('menu-panel');
+        let HacerClick = false;
+
+        // Alterna la visibilidad del panel
+        const toggleMenu = () => {
+            HacerClick = !HacerClick;
+            menuBtn.setAttribute('aria-expanded', HacerClick);
+            menuPanel.classList.toggle('hidden');
+        };
+
+        // Clic en el botón hamburguesa
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que el clic se propague al documento
+            toggleMenu();
+        });
+
+        // Cierra el menú al hacer clic fuera de la ventanita flotante
+        document.addEventListener('click', (e) => {
+            if (HacerClick && !menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+
+        // Cierra el menú si se presiona la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (HacerClick && e.key === 'Escape') {
+                toggleMenu();
+                menuBtn.focus(); // Retorna el foco al botón por accesibilidad
+            }
+        });
+    });
+</script>
