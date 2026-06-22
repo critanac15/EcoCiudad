@@ -124,12 +124,12 @@
     <!-- Se aplica un sistema de rejilla: 1 columna en móvil y 3 columnas en pantallas medianas (md) en adelante -->
 
     <main class="xl:px-40 px-5 xl:py-20 py-5   bg-[#ffffff] flex flex-col min-h-screen">
-        <div class="flex xl:gap-5 xl:mb-10 text-white xl:justify-start justify-around ">
+        <div class="flex xl:gap-5 gap-3 xl:mb-10 text-white xl:justify-start justify-between ">
             <div>
-                <button id="ver_reporte" class="bg-violet-700  xl:py-3 py-2 xl:px-4 px-2  hover:cursor-pointer xl:rounded-xl rounded-md xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>
+                <button id="ver_reporte" class="bg-violet-700  xl:py-3 py-2 xl:px-4 px-3  hover:cursor-pointer xl:rounded-xl rounded-md xl:hover:scale-105 transition-all duration-150">Ver todos los reportes</button>
             </div>
             <div>
-                <button id="crear_reporte" class="bg-violet-700  xl:py-3 py-2 xl:px-4 px-2  hover:cursor-pointer xl:rounded-xl rounded-md xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
+                <button id="crear_reporte" class="bg-violet-700  xl:py-3 py-2 xl:px-4 px-3  hover:cursor-pointer xl:rounded-xl rounded-md xl:hover:scale-105 transition-all duration-150">Crear nuevo reporte +</button>
             </div>
         </div>
 
@@ -247,9 +247,9 @@
         <form class="hidden" id="crear_div_reporte" method="post" action="{{ route('reportes.store') }}" enctype="multipart/form-data">
             @csrf
 
-            <div class="xl:grid xl:grid-cols-2 xl:gap-10 ">
+            <div class="xl:grid xl:grid-cols-2 xl:gap-10 my-4 flex flex-col gap-y-3 ">
                 <div class="relative overflow-hidden border-dashed border-2 bg-white border-gray-300 rounded-xl flex justify-center items-center">
-                    <input id="input_foto" type="file" name="imagen" accept="image/*" class="hover:scale-105 duration-150 transition-all hover:cursor-pointer xl:py-2 xl:px-1 rounded-xl bg-gray-300 block">
+                    <input id="input_foto" type="file" name="imagen" accept="image/*" class="hover:scale-105 duration-150 transition-all hover:cursor-pointer xl:py-2 xl:px-1 py-10 px-3 rounded-xl bg-gray-300 block">
                     <img id="vista_previa" src="" class="hidden rounded-xl" alt="Ingrese una imagen">
                     <div id="eliminar_foto" class="hover:cursor-pointer text-red-700 font-bold  absolute xl:top-0 xl:right-0 hidden xl:py-1 xl:px-2 bg-white rounded-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-150 ">
                         <button type="button" class=" text-2xl  hover:cursor-pointer">x</button>
@@ -291,26 +291,27 @@
 
                     });
                 </script>
-                <div class="flex flex-col justify-center xl:gap-y-2">
-                    <div class="grid xl:grid-cols-4">
+                <div class="flex flex-col justify-center xl:gap-y-2 gap-y-1 ">
+                    <div class="grid xl:grid-cols-4 grid-cols-2 gap-3 xl:gap-0">
                         <div class="xl:col-span-3 xl:mb-3">
                             <!-- Verificando si el usuario esta registrado o no--->
                             @if (Route::has('login'))
                             @auth
                             <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por:  cristian" />
+                            
                             @else
                             <input disabled class="xl:py-2 text-gray-500 bg-gray-100  border-gray-300 rounded-lg xl:px-2 w-full" name="nombre" placeholder="Subido por: " />
                             @endauth
                             @endif
                         </div>
-                        <div class="col-span-3 justify-center xl:gap-5 mb-2">
-                            <input type="text" name="titulo" placeholder="Título del reporte" required class="bg-gray-100 focus:ring-0 xl:rounded-lg xl:pl-2 border-1 xl:py-2 w-full hover:outline-0" />
+                        <div class="xl:col-span-3 xl:justify-center xl:gap-5 xl:mb-2">
+                            <input type="text" name="titulo" placeholder="Título del reporte" required class="bg-gray-100 xl:focus:ring-0 xl:rounded-lg rounded-md xl:pl-2 border-1 xl:py-2 xl:w-full w-full  hover:outline-0" />
                         </div>
-                        <div class="col-span-3 justify-center xl:gap-5">
-                            <input type="text" id="direccion" name="ubicacion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0 xl:rounded-lg xl:pl-2 border-1 xl:py-2 w-full hover:outline-0" />
+                        <div class="xl:col-span-3 justify-center xl:gap-5">
+                            <input type="text" id="direccion" name="ubicacion" placeholder="Distrito - lugar - referencia" class="bg-gray-100 focus:ring-0 xl:rounded-lg rounded-md xl:pl-2 border-1 xl:py-2 xl:w-full hover:outline-0" />
                         </div>
                         <div class="col-span-1 justify-end items-center flex">
-                            <button type="button" id="btn_direccion" class=" xl:px-4 xl:py-2 rounded-lg hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 ">Usar mi ubicacion</button>
+                            <button type="button" id="btn_direccion" class=" xl:px-4 px-2 xl:py-2 py-2 xl:rounded-lg rounded-md hover:cursor-pointer bg-gray-300 hover:scale-105 duration-150 border border-gray-600 ">Usar mi ubicacion</button>
                         </div>
                         <!-- Codigo javaScript para la parte de solicitar ubicacion--->
                         <script>
@@ -368,8 +369,8 @@
                         </script>
 
                     </div>
-                    <div class="col-span-4 overflow-y-scroll justify-center items-center grid xl:grid-cols-4">
-                        <textarea name="descripcion" class="bg-gray-100 rounded-xl xl:p-3 text-wrap border-1 hover:outline-0   col-span-4" placeholder="agrega una breve descripcion" rows="4"></textarea>
+                    <div class="xl:col-span-4 overflow-y-scroll xl:justify-center items-center grid xl:grid-cols-4">
+                        <textarea name="descripcion" class="bg-gray-100 rounded-xl xl:p-3 xl:text-wrap border-1 hover:outline-0    xl:col-span-4 w-full" placeholder="agrega una breve descripcion" rows="4"></textarea>
                     </div>
                 </div>
             </div>
@@ -377,9 +378,9 @@
                 <!--Verificando si el usuario esta registrado-->
 
                 @auth
-                <button type="submit" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+                <button type="submit" class="bg-violet-700 text-white py-2 px-10 xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
                 @else
-                <button type="button" onclick="alert('inicie sesion primero')" class="bg-violet-700 text-white xl:py-2 rounded-xl xl:px-16 hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
+                <button type="button" onclick="alert('inicie sesion primero')" class="bg-violet-700 text-white xl:py-2 rounded-xl py-2 xl:px-16 px-10   hover:scale-105 duration-150 transition-all hover:cursor-pointer">Crear reporte</button>
                 @endauth
 
             </div>
