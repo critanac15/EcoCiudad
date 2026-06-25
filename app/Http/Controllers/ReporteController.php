@@ -26,7 +26,7 @@ class ReporteController extends Controller
 
         //Guardar datos en una variable para las foregein keys
         // Capturamos solo los parámetros que nos interesan para filtrar
-        $filters = $request->only(['nombre','date','estado_']);
+        $filters = $request->only(['nombre','date','estado_','ubicacion']);
 
         // Delegamos la obtención de datos al servicio
         $reporte = $this->reporteService->getAllReports($filters);
@@ -57,16 +57,14 @@ class ReporteController extends Controller
         ]);
 
         try {
-            
-            // Guardar la imagen en la nube (Cloudinary)
-            // Se envía el archivo de imagen directamente a la plataforma Cloudinary para no saturar nuestro propio servidor.
+            // Se envía el archivo de imagen directamente a la plataforma Cloudinary.
             // cloudinary()->uploadApi() accede directamente a la SDK oficial.
             $uploadResult = cloudinary()->uploadApi()->upload($request->file('imagen')->getRealPath(), [
                 //folder y reportes _sistema son apartados donde se guardan las imagenes subidas por el usuario en el mismo cloudinary
                 'folder' => 'reportes_sistema'
             ]);
             
-            // Obtenemos el link seguro (HTTPS) de la imagen que ya está en la nube.
+            // Obtenemos el link seguro con (HTTPS) de la imagen que ya está en la nube.
             // Esto es lo que guardaremos en nuestra base de datos (solo el texto del enlace), no la imagen pesada.
             $imageUrl = $uploadResult['secure_url'];
 

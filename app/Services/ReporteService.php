@@ -38,6 +38,10 @@ class ReporteService
         {
             $query->where('estado', 'like', '%' . $filters['estado_'] . '%');
         }
+        // 2. NUEVO: Filtro por ubicación (distrito) usando LIKE
+        if (!empty($filters['ubicacion'])) {
+            $query->where('ubicacion', 'like', '%' . $filters['ubicacion'] . '%');
+        }
         // Retornamos los resultados ordenados por fecha de forma descendente
         return $query->orderBy('report_date', 'desc')->get();
     }
