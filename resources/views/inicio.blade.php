@@ -397,9 +397,10 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.remove(...hiddenClasses);
                         entry.target.classList.add(...visibleClasses);
-                    } else {
-                        entry.target.classList.remove(...visibleClasses);
-                        entry.target.classList.add(...hiddenClasses);
+                    // Dejamos de observar el elemento una vez que ya apareció
+                        // Esto soluciona el bug del parpadeo (flickering) que ocurre cuando 
+                        // la animación de "translate-y" empuja el elemento fuera del threshold
+                        scrollObserver.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
