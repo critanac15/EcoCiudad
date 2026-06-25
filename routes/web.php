@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 
+// "Route::get" es como decirle al sistema: "Cuando alguien escriba la dirección '/' (la página principal),
+// muéstrale la vista llamada 'inicio'."
 Route::get('/', function () 
 {
     return view('inicio');
@@ -23,8 +25,9 @@ Route::get('/reportes',function()
 
 Route::get('/reportes',[ ReporteController::class, 'index' ])->name('reportes');
 
-// Se agregó la ruta POST para '/reportes' apuntando al método 'store' del controlador.
-// Sin esta ruta, el formulario no tendría a dónde enviar los datos de los nuevos reportes.
+// Route::post se usa cuando enviamos información desde un formulario (para que no se vea en la barra de direcciones).
+// Aquí dice: cuando envíen datos a '/reportes', llévalos a la función 'store' del controlador ReporteController.
+// Esta es la ruta que recibe la información del nuevo reporte para guardarlo.
 Route::post('/reportes',[ ReporteController::class, 'store' ])->name('reportes.store');
 
 
@@ -54,6 +57,9 @@ Route::get('registro',function()
 Route::get('/dashboard', function ()
 {
     return view('dashboard');
+// El "middleware" es como un guardia de seguridad.
+// 'auth' significa que tienes que estar autenticado (haber iniciado sesión) para entrar a esta ruta.
+// Si no iniciaste sesión, te mandará de regreso a la pantalla de login.
 })->middleware( ['auth', 'verified'] )->name('dashboard');
 
 Route::middleware('auth')->group(function ()

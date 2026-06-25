@@ -44,7 +44,9 @@ class ReporteController extends Controller
     }
    public function store(Request $request)
     {
-        // Validación estricta antes de tocar cualquier servicio externo
+        // Validación estricta antes de tocar cualquier servicio externo.
+        // Aquí verificamos que el usuario no nos envíe información vacía o archivos que no sean imágenes.
+        // "$request" contiene toda la información que el usuario llenó en el formulario.
         $request->validate([
             'titulo'      => 'required|string|max:255',
             'descripcion' => 'nullable|string',
@@ -56,24 +58,28 @@ class ReporteController extends Controller
 
         try {
             
-            // se usa la API de subida oficial ya que en la versión 3 de cloudinary-laravel
-            // la función ->storeOnCloudinary() fue removida.
+            // Guardar la imagen en la nube (Cloudinary)
+            // Se envía el archivo de imagen directamente a la plataforma Cloudinary para no saturar nuestro propio servidor.
             // cloudinary()->uploadApi() accede directamente a la SDK oficial.
             $uploadResult = cloudinary()->uploadApi()->upload($request->file('imagen')->getRealPath(), [
                 //folder y reportes _sistema son apartados donde se guardan las imagenes subidas por el usuario en el mismo cloudinary
                 'folder' => 'reportes_sistema'
             ]);
             
-            // Obtenemos el link seguro (HTTPS) de la respuesta que es un array
+            // Obtenemos el link seguro (HTTPS) de la imagen que ya está en la nube.
+            // Esto es lo que guardaremos en nuestra base de datos (solo el texto del enlace), no la imagen pesada.
             $imageUrl = $uploadResult['secure_url'];
 
             // Obtener datos filtrados del formulario
             $data = $request->only(['titulo', 'descripcion', 'estado_', 'date', 'ubicacion']);
             
-            // Asignación del usuario autenticado de la sesión de Laravel
+            // Asignación del usuario autenticado.
+            // auth()->id() nos da el número de identificación del usuario que está usando la página ahora mismo.
+            // Así sabemos a quién pertenece este nuevo reporte.
             $data['user_id'] = auth()->id(); 
 
-            // Pasar la responsabilidad del guardado relacional al Service la variable data y imageURL
+            // Pasamos la información recolectada (datos del formulario y el link de la imagen) al "Servicio".
+            // El controlador solo recibe y valida, pero es el Servicio quien se encarga de guardar todo en la base de datos.
             $this->reporteService->storeReport($data, $imageUrl);
 
             return redirect()->route('reportes')->with('exitoso', 'Reporte creado exitosamente.');

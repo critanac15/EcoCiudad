@@ -123,6 +123,8 @@
 
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
+                                        {{-- @csrf es como un sello de seguridad invisible. --}}
+                                        {{-- Laravel nos exige ponerlo en todos los formularios para asegurar que nadie envíe información falsa desde otras páginas maliciosas. --}}
                                         @csrf
                                         <a href="{{ route('logout') }}"
                                                 onclick="event.preventDefault(); this.closest('form').submit();"

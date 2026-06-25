@@ -16,8 +16,9 @@ class ReporteService
         // Iniciamos una consulta base sobre el modelo Report
         $query = Reporte::query();
 
-        // Aplicamos filtros dinámicos: si el usuario envió un nombre, filtramos por 'LIKE'
-        //Uso de whereHas para buscar en la relación 'usuario'
+        // Si el usuario envió un nombre para buscar, aplicamos este filtro.
+        // "whereHas" nos permite buscar en otra tabla relacionada. En este caso, busca reportes donde el "usuario" (el autor) 
+        // tenga un nombre que coincida con lo que se escribió en la búsqueda.
         if (!empty($filters['nombre'] ))
         {
             $query->whereHas('usuario', function( $q ) use ($filters) 
@@ -46,15 +47,19 @@ class ReporteService
      */
     public function storeReport(array $data, string $imageUrl)
     {
-        // se encapsula ambas operaciones en una transacción con la sintaxis de laravel
+        // DB::transaction funciona como una operación de "todo o nada".
+        // O se guarda TODO correctamente (la imagen y el reporte), o no se guarda NADA.
+        // Esto evita que tengamos imágenes guardadas sin un reporte al que pertenezcan, o viceversa, si ocurre algún error a mitad de camino.
         return DB::transaction(function () use ($data, $imageUrl) {
             
-            // se crea el registro físico de la imagen primero
+            // Paso 1: Creamos el registro de la imagen en la base de datos.
+            // Aquí solo estamos guardando el enlace web de la imagen, no el archivo pesado.
             $imagen = Imagen::create([
                 'ruta_imagen' => $imageUrl
             ]);
 
-            //se crea el reporte asignando las IDs correspondientes
+            // Paso 2: Creamos el registro del reporte principal.
+            // Y conectamos la imagen recién guardada pasándole su ID ($imagen->id_imagen).
             return Reporte::create([
                 'titulo'      => $data['titulo'],
                 'descripcion' => $data['descripcion'] ?? '',
