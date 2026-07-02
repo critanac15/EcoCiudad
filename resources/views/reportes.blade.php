@@ -136,7 +136,7 @@
         <!-- Condicionales para mostrar mensajes si hubo o no error al crear reportes -->
         @if(session('exitoso'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative my-4" role="alert">
-            <span class="block sm:inline">{{ session('success') }}</span>
+            <span class="block sm:inline">{{ session('exitoso') }}</span>
         </div>
         @endif
 
@@ -197,23 +197,20 @@
                 <div class=" xl:p-5 p-3 rounded-xl shadow-xl relative">
                     @php
                     $estado = $report->estado;
-
                     $colorClase = '';
-                    if($estado === 'solucionado')
+                    if($estado === 'Solucionado')
                     {
-                    $colorClase = 'bg-green-400';
-                    }else
-                    {
-                    if($estado === 'pendiente')
-                    {
-                    $colorClase = 'bg-gray-400';
-                    }else
-                    {
-                    if($estado === 'En abandono')
-                    {
-                    $colorClase = 'bg-red-500';
-                    }
-                    }
+                        $colorClase = 'bg-green-400';
+                    }else{
+                        if($estado === 'pendiente')
+                        {
+                            $colorClase = 'bg-gray-400';
+                        }else{
+                            if($estado === 'En abandono')
+                            {
+                                $colorClase = 'bg-red-500';
+                            }
+                        }
                     }
                     @endphp
 

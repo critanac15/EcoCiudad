@@ -380,9 +380,8 @@
                 }
             });
 
-            // ==========================================
-            // API IntersectionObserver para Animaciones Scroll
-            // ==========================================
+            // ======================================================================================
+            // Para Animaciones Scroll
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',

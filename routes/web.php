@@ -28,9 +28,7 @@ Route::get('/reportes',[ ReporteController::class, 'index' ])->name('reportes');
 // Route::post se usa cuando enviamos información desde un formulario (para que no se vea en la barra de direcciones).
 // Aquí dice: cuando envíen datos a '/reportes', llévalos a la función 'store' del controlador ReporteController.
 // Esta es la ruta que recibe la información del nuevo reporte para guardarlo.
-Route::post('/reportes',[ ReporteController::class, 'store' ])->name('reportes.store');
-
-
+Route::post('/reportes',[ ReporteController::class, 'almacenarDatosReporte' ])->name('reportes.store');
 
 Route::get('/contacto',function()
 {

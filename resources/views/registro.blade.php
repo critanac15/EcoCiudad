@@ -60,7 +60,7 @@
                                     <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
                                     <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                                 </svg>
-                                <!-- Se cambió el parametro de value="old('email')" por value="{{ old('email') }}" para prevenir errores de validacion -->
+                                <!-- Mejorando la seguridad Ante XSS------------------------------>
                                 <input type="email" name="email" value="{{ old('email') }}" required placeholder="ejemplo@gmail.com" class="px-3 py-1 focus:ring-0 outline-0 border-0 rounded-xl w-full xl:w-72 h-10">
                             </legend>
                             <hr class="mt-2">

@@ -12,7 +12,7 @@ class Autoridad extends Model
 
     //funcion para la relacion en forma eloquentt
     //has many= tiene muchos, relacion de 1 a  N
-    public function reportes() 
+    public function reportes()
     {
         return $this->hasMany(Reporte::class, 'id_autoridad');
     }

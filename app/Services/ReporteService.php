@@ -11,7 +11,7 @@ class ReporteService
      * Obtiene reportes con filtros opcionales.
      * Esta lógica se extrae del controlador para que sea reutilizable y fácil de testear.
      */
-    public function getAllReports($filters = [])
+    public function conseguirTodosLosFiltros($filtros = [])
     {
         // Iniciamos una consulta base sobre el modelo Report
         $query = Reporte::query();
@@ -19,28 +19,28 @@ class ReporteService
         // Si el usuario envió un nombre para buscar, aplicamos este filtro.
         // "whereHas" nos permite buscar en otra tabla relacionada. En este caso, busca reportes donde el "usuario" (el autor) 
         // tenga un nombre que coincida con lo que se escribió en la búsqueda.
-        if (!empty($filters['nombre'] ))
+        if (!empty($filtros['nombre'] ))
         {
-            $query->whereHas('usuario', function( $q ) use ($filters) 
+            $query->whereHas('usuario', function( $q ) use ($filtros) 
             {
-                $q->where('name', 'like', '%' . $filters['nombre'] . '%');
+                $q->where('name', 'like', '%' . $filtros['nombre'] . '%');
             });
         }
         
         // Si envió una fecha, filtramos exactamente por ese día
-        if (!empty($filters['date']) )
+        if (!empty($filtros['date']) )
         {
-            $query->whereDate('report_date', $filters['date']);
+            $query->whereDate('report_date', $filtros['date']);
         }
 
         //Para la parte de estados
-        if( !empty($filters['estado_']) )
+        if( !empty($filtros['estado_']) )
         {
-            $query->where('estado', 'like', '%' . $filters['estado_'] . '%');
+            $query->where('estado', 'like', '%' . $filtros['estado_'] . '%');
         }
-        // 2. NUEVO: Filtro por ubicación (distrito) usando LIKE
-        if (!empty($filters['ubicacion'])) {
-            $query->where('ubicacion', 'like', '%' . $filters['ubicacion'] . '%');
+        // NUEVO: Filtro por ubicación (distrito) usando LIKE
+        if (!empty($filtros['ubicacion'])) {
+            $query->where('ubicacion', 'like', '%' . $filtros['ubicacion'] . '%');
         }
         // Retornamos los resultados ordenados por fecha de forma descendente
         return $query->orderBy('report_date', 'desc')->get();
@@ -49,7 +49,7 @@ class ReporteService
     /**
      * Crea un nuevo reporte en la base de datos.
      */
-    public function storeReport(array $data, string $imageUrl)
+    public function AlmacenarReporte(array $data, string $imageUrl)
     {
         // DB::transaction funciona como una operación de "todo o nada".
         // O se guarda TODO correctamente (la imagen y el reporte), o no se guarda NADA.
